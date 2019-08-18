@@ -1,0 +1,38 @@
+{
+  "name": "react-npm",
+  "version": "1.0.0",
+  "description": "A React component boilerplate for NPM packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umairnadeem123/react-npm.git"
+  },
+  "keywords": [
+    "npm",
+    "react",
+    "template"
+  ],
+  "author": "Umair Nadeem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umairnadeem123/react-npm/issues"
+  },
+  "homepage": "https://github.com/umairnadeem123/react-npm#readme",
+  "dependencies": {
+    "babel-loader": "^8.0.6",
+    "path": "^0.12.7",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0"
+  }
+}
