@@ -1,10 +1,12 @@
+const path = require('path');
+
 module.exports = {
-  mode: 'production',
-  entry: './src',
+  mode: 'development',
+  entry: path.resolve('src'),
   output: {
     path: path.resolve('lib'),
     filename: 'Component.js',
-    libraryTarget: 'commonjs2'
+    // libraryTarget: 'commonjs2'
   },
   module: {
     rules: [
@@ -16,6 +18,11 @@ module.exports = {
         }
       }
     ]
+  },
+  devServer: {
+    contentBase: path.resolve('lib'),
+    compress: true,
+    port: process.env.PORT || 3000,
   }
 };
 

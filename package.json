@@ -4,7 +4,9 @@
   "description": "A React component boilerplate for NPM packages",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "webpack-dev-server --open",
+    "build": "webpack -d --watch"
   },
   "repository": {
     "type": "git",
@@ -33,6 +35,8 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0"
+    "@babel/preset-react": "^7.0.0",
+    "eslint": "^6.1.0",
+    "webpack-dev-server": "^3.8.0"
   }
 }
