@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "start": "webpack-dev-server --open",
-    "build": "webpack -d --watch"
+    "start": "webpack-dev-server --open --env=dev",
+    "build": "webpack -d --watch --env=dev"
   },
   "repository": {
     "type": "git",

@@ -1,31 +1,10 @@
-const path = require('path');
+const base = require('./webpack.config.base');
 
 module.exports = {
-  mode: 'development',
-  entry: path.resolve('src'),
+  ...base,
+  mode: 'production',
   output: {
-    path: path.resolve('lib'),
-    filename: 'Component.js',
     libraryTarget: 'commonjs2',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
-  devServer: {
-    contentBase: path.resolve('lib'),
-    compress: true,
-    port: process.env.PORT || 3000,
   },
   externals: {
     react: 'commonjs react',
