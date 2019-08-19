@@ -1,5 +1,5 @@
 {
-  "name": "react-npm",
+  "name": "react-line-graph",
   "version": "1.0.0",
   "description": "A React component boilerplate for NPM packages",
   "main": "index.js",
@@ -25,7 +25,8 @@
   "homepage": "https://github.com/umairnadeem123/react-npm#readme",
   "dependencies": {
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

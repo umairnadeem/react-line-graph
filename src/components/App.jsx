@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import LineGraph from './LineGraph';
+
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +11,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        test
+        Some padding...
+        <LineGraph />
       </div>
     );
   }

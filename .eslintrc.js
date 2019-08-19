@@ -23,6 +23,7 @@ module.exports = {
   rules: {
     "import/no-dynamic-require": "off",
     "global-require": "off",
+    "import/prefer-default-export": "off",
   },
   parser: 'babel-eslint',
 };
