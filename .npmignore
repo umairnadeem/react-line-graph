@@ -1,5 +1,6 @@
 src
 demo
 .babelrc
+.eslintrc
 webpack.config.js
 index.html
