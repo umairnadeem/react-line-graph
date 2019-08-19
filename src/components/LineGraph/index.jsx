@@ -15,11 +15,17 @@ class LineGraph extends Component {
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
-        <path
+        {/* <path
           stroke="#000000"
           fill="none"
           strokeWidth="1"
           d={`M0,100 ${toBezier('0,100', '45,50', 16)} ${toBezier('45,50', '90,100', -16)}`}
+        /> */}
+        <path
+          stroke="#000000"
+          fill="none"
+          strokeWidth="1"
+          d={`M0,100 ${toBezier('0,100', '22.5,75', -5)} ${toBezier('22.5,75', '45,50', 10)} ${toBezier('45,50', '67.5,75', -10)}${toBezier('67.5,75', '90,100', 5)}`}
         />
         <g>
           <circle cx="22.5" cy="25" r="2" fill="red" />
