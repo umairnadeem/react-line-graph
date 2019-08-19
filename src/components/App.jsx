@@ -10,7 +10,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div id="test">
         Some padding...
         <LineGraph />
       </div>

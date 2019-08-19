@@ -40,6 +40,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "jquery": "^3.4.1",
+    "jquery-ui": "^1.12.1",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "webpack": "^4.39.2",
