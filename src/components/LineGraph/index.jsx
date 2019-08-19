@@ -8,7 +8,7 @@ class LineGraph extends Component {
   }
 
   render() {
-    console.log(toBezier('0,50', '90,10', 5));
+    console.log(toBezier('45,50', '90,100', 0));
     return (
       <svg
         style={{ width: '100%', height: '100%' }}
@@ -19,10 +19,10 @@ class LineGraph extends Component {
           stroke="#000000"
           fill="none"
           strokeWidth="1"
-          d={`M0,50 ${toBezier('0,50', '90,10', 5)}`}
+          d={`M0,100 ${toBezier('0,100', '45,50', 16)} ${toBezier('45,50', '90,100', -16)}`}
         />
         <g>
-          <circle cx="40" cy="18.75" r="2" fill="red" />
+          <circle cx="22.5" cy="25" r="2" fill="red" />
         </g>
       </svg>
     );

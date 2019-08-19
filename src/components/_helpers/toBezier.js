@@ -15,10 +15,12 @@ export const toBezier = (from, to, amount) => {
   const b = parse(to);
   const slope = (b[1] - a[1]) / (b[0] - a[0]);
   const intercept = a[1] - slope * a[0];
-  const midX = (b[0] - a[0]) / 2;
+  const midX = a[0] + (b[0] - a[0]) / 2;
   const midY = slope * (midX) + intercept;
   const perpSlope = -1 * (1 / slope);
   const perpIntercept = midY - perpSlope * midX;
+  console.log(`y = ${slope}x + ${intercept}`)
+  console.log(`y = ${perpSlope}x + ${perpIntercept}`)
   const outputX = midX - amount;
   const outputY = perpSlope * outputX + perpIntercept;
   return `Q${outputX},${outputY} ${b.join(',')}`;
