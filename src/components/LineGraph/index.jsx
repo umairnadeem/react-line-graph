@@ -19,16 +19,26 @@ class LineGraph extends Component {
           stroke="#000000"
           fill="none"
           strokeWidth="1"
-          d={`M0,100 ${toBezier('0,100', '45,50', 16)} ${toBezier('45,50', '90,100', -16)}`}
+          d={`M0,100 ${toBezier('0,100', '45,50', 25)} ${toBezier('45,50', '90,100', -25)}`}
         /> */}
         <path
           stroke="#000000"
           fill="none"
           strokeWidth="1"
-          d={`M0,100 ${toBezier('0,100', '22.5,75', -5)} ${toBezier('22.5,75', '45,50', 10)} ${toBezier('45,50', '67.5,75', -10)}${toBezier('67.5,75', '90,100', 5)}`}
+          d={`M0,100 ${toBezier('0,100', '22.5,75', -5)} ${toBezier('22.5,75', '45,50', 5)} ${toBezier('45,50', '67.5,75', -5)}${toBezier('67.5,75', '90,100', 5)}`}
         />
+        {/* <path
+          stroke="#000000"
+          fill="none"
+          strokeWidth="1"
+          d={`M0,100 ${toBezier('0,100', '45,50', 10)}`}
+        /> */}
         <g>
-          <circle cx="22.5" cy="25" r="2" fill="red" />
+          <circle cx="0" cy="100" r="2" fill="red" />
+          <circle cx="22.5" cy="75" r="2" fill="red" />
+          <circle cx="45" cy="50" r="2" fill="red" />
+          <circle cx="67.5" cy="75" r="2" fill="red" />
+          <circle cx="90" cy="100" r="2" fill="red" />
         </g>
       </svg>
     );

@@ -23,5 +23,5 @@ export const toBezier = (from, to, amount) => {
   console.log(`y = ${perpSlope}x + ${perpIntercept}`)
   const outputX = midX - amount;
   const outputY = perpSlope * outputX + perpIntercept;
-  return `Q${outputX},${outputY} ${b.join(',')}`;
+  return `S${outputX},${outputY} ${b.join(',')}`;
 };
