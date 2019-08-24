@@ -22,7 +22,7 @@ const getInterceptWithPoint = (slope, point) => {
   return y - slope * x;
 };
 
-export const findCtrlPoint = (adj = 0, last = false, ...args) => {
+export const findCtrlPoint = (adj = 0, ...args) => {
   args.forEach((point) => {
     if (typeof point !== 'string' || !args.length) {
       throw new Error('Coordinates must be defined and of type string.');

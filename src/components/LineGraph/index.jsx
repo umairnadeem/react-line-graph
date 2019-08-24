@@ -12,13 +12,10 @@ class LineGraph extends Component {
     const y = '20,70';
     const z = '40,10';
     const a = '60,80';
-    // const ctrlA = findCtrlPoint(x, y, z, 10, true).join(',');
-    // const ctrlB = findCtrlPoint(y, z, a, 10, true).join(',');
-    // const ctrlC = findCtrlPoint(y, z, a, 10, false).join(',');
 
-    const ctrlA = findCtrlPoint(10, false, x, y, z).join(',');
-    const ctrlB = findCtrlPoint(10, false, y, z, a).join(',');
-    const ctrlC = findCtrlPoint(10, true, y, z, a).join(',');
+    const ctrlA = findCtrlPoint(10, x, y, z).join(',');
+    const ctrlB = findCtrlPoint(10, y, z, a).join(',');
+    const ctrlC = findCtrlPoint(10, z, a).join(',');
     console.log(ctrlA, ctrlB, ctrlC);
     return (
       <svg
@@ -32,6 +29,12 @@ class LineGraph extends Component {
           strokeWidth="1"
           d={`M${x} S${ctrlA} ${y} S${ctrlB} ${z} S${ctrlC} ${a}`}
         />
+        {/* <path
+          stroke="#000000"
+          fill="none"
+          strokeWidth="1"
+          d={`M${x} L${y} L ${z} L ${a}`}
+        /> */}
         <g>
           <circle cx="0" cy="50" r="2" fill="red" />
           <circle cx="20" cy="70" r="2" fill="red" />
