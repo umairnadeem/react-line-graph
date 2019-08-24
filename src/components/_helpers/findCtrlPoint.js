@@ -1,9 +1,3 @@
-/**
- * Spits out a SVG Quadratic Bezier string
- * @param {String} from - The starting coordinate
- * @param {String} to - The ending coordinate
- * @param {Integer} amount - Amount of Bezier from 0 to 100
- */
 const parse = (str) => str
   .trim()
   .split(',')
@@ -22,8 +16,12 @@ const getInterceptWithPoint = (slope, point) => {
   return y - slope * x;
 };
 
+/**
+ * Finds the control point for Bezier smoothing given a ratio
+ * @param {Number} smoothing - The smoothing ratio, from 0 to 1
+ * @param {String} args - String(s) of Cartesian coordinate points
+ */
 export const findCtrlPoint = (smoothing = 0, ...args) => {
-
   // Filter out undefined values
   const points = args.filter((point) => point);
 
