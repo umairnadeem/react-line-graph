@@ -14,9 +14,11 @@ Supports Bezier smoothing, easy customization, and hover interactivity.
 1. [Requirements](#requirements)
 2. [Installation](#installation)
 3. [Usage](#Usage)
-4. [API Examples](#API-Examples)
+4. [Development Setup](#Development-setup)
 5. [Testing](#Testing)
-6. [Future Features](#Future-features)
+6. [Release History](#release-history)
+7. [Meta](#meta)
+8. [Contributing](#contributing)
 
 ## Requirements
 
@@ -31,10 +33,38 @@ npm install react-line-graph
 ```
 ## Usage
 
-Usage is quite simple. First, import the component:
+Usage is quite simple. First, import the component (React is required as an installed dependency or CDN):
 ```sh
-import { lineGraph } from 'react-line-graph'
+import { LineGraph } from 'react-line-graph'
 ```
+
+Render the line:
+
+```sh
+const data = [10,0,-2.5,540]; // LineGraph reads these as y-values, automatically spaces them out evenly
+<LineGraph data={data}/>
+```
+or 
+```sh
+const data = [[0,20], [-30,40], [-88.9, 9]]; // LineGraph reads these as x,y pairs
+<LineGraph data={data}/>
+```
+
+Making your graph smooth is easy:
+```sh
+const data = [10,0,-2.5,540];
+const props = {
+  data,
+  smooth: 0.3,
+  lineColor: 'palevioletred',
+  fillBelow: 'rgba(200,67,23,0.1)',
+  hover: true,
+};
+
+<LineGraph {...props}/>
+```
+_This renders a smooth graph with hovering enabled. The y-value is displayed upon hover by default, but this can be changed._
+
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
 ## Development setup
@@ -44,6 +74,11 @@ From within the root directory:
 ```sh
 npm install
 npm start
+```
+## Testing
+From within the root directory: 
+```sh
+npm test
 ```
 
 ## Release History
