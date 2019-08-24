@@ -22,19 +22,24 @@ const getInterceptWithPoint = (slope, point) => {
   return y - slope * x;
 };
 
-export const findCtrlPoint = (x, y, z, adj = 0, reverse = false) => {
-  if (typeof x !== 'string' || typeof y !== 'string' || typeof z !== 'string') {
-    throw new Error('Coordinates must be of type string.');
-  }
+export const findCtrlPoint = (adj = 0, last = false, ...args) => {
+  args.forEach((point) => {
+    if (typeof point !== 'string' || !args.length) {
+      throw new Error('Coordinates must be defined and of type string.');
+    }
+  });
+  const firstPoint = args[0];
+  const midPoint = args[Math.floor(args.length / 2)];
+  const endPoint = args[args.length - 1];
 
   // Get line from point x to z
-  const [slope] = getLine(x, z);
+  const [slope] = getLine(firstPoint, endPoint);
 
   // Get intercept of line which passes through y
-  const intercept = getInterceptWithPoint(slope, y);
+  const intercept = getInterceptWithPoint(slope, midPoint);
 
-  let [outX] = parse(y);
-  outX += reverse ? -1 * adj : adj;
+  let [outX] = parse(midPoint);
+  outX += -1 * adj;
   const outY = slope * outX + intercept;
   return [outX, outY];
 };

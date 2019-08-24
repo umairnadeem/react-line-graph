@@ -1,1 +1,1 @@
-export * from './toBezier';
+export * from './findCtrlPoint';
