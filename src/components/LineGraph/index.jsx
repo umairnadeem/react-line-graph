@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { findCtrlPoint } from '../_helpers';
+import { drawPath, smooth } from '../_helpers';
 
 class LineGraph extends Component {
   constructor(props) {
@@ -8,15 +8,9 @@ class LineGraph extends Component {
   }
 
   render() {
-    const x = '0,50';
-    const y = '20,70';
-    const z = '40,10';
-    const a = '60,80';
+    const points = [[0, 50], [20, 70], [40, 10], [60, 80]];
 
-    const ctrlA = findCtrlPoint(10, x, y, z).join(',');
-    const ctrlB = findCtrlPoint(10, y, z, a).join(',');
-    const ctrlC = findCtrlPoint(10, z, a, undefined).join(',');
-    console.log(ctrlA, ctrlB, ctrlC);
+    const string = drawPath(points, smooth, 10);
     return (
       <svg
         style={{ width: '100%', height: '100%' }}
@@ -27,14 +21,8 @@ class LineGraph extends Component {
           stroke="#000000"
           fill="none"
           strokeWidth="1"
-          d={`M${x} S${ctrlA} ${y} S${ctrlB} ${z} S${ctrlC} ${a}`}
+          d={string}
         />
-        {/* <path
-          stroke="#000000"
-          fill="none"
-          strokeWidth="1"
-          d={`M${x} L${y} L ${z} L ${a}`}
-        /> */}
         <g>
           <circle cx="0" cy="50" r="2" fill="red" />
           <circle cx="20" cy="70" r="2" fill="red" />

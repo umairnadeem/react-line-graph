@@ -7,4 +7,7 @@ const def = (point) => `L${point.join(',')}`;
  * @param {Number} payload - (optional) The payload for the transformation function
  */
 export const drawPath = (points = [], transform = def, payload = 0) => points
-  .reduce((path, point, index) => (index ? `${path}${transform(point, index, points, payload)}` : `M${point.join(',')}`));
+  .reduce((path, point, index) => (
+    index
+      ? `${path} ${transform(point, index, points, payload)}`
+      : `M${point.join(',')}`), []);

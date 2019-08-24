@@ -1,8 +1,8 @@
 import { findCtrlPoint } from './findCtrlPoint';
 
-export const smooth = (point, index, points) => {
-  let last = points.length - 1;
-  if (index !== last) {
-    return 
-  }
-};
+export const smooth = (point, index, points, ratio) => `S${findCtrlPoint(
+  ratio,
+  points[index - 1],
+  point,
+  points[index + 1],
+).join(',')} ${point.join(',')}`;

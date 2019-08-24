@@ -1,7 +1,9 @@
-const parse = (str) => str
-  .trim()
-  .split(',')
-  .map((x) => parseInt(x, 10));
+const parse = (input) => (typeof input === 'string'
+  ? input
+    .trim()
+    .split(',')
+    .map((x) => parseInt(x, 10))
+  : input);
 
 const getLine = (from, to) => {
   const [x1, y1] = parse(from);
@@ -19,17 +21,14 @@ const getInterceptWithPoint = (slope, point) => {
 /**
  * Finds the control point for Bezier smoothing given a ratio
  * @param {Number} smoothing - The smoothing ratio, from 0 to 1
- * @param {String} args - String(s) of Cartesian coordinate points
+ * @param {String/Array} args - String(s) or tuples of Cartesian coordinate points
  */
 export const findCtrlPoint = (smoothing = 0, ...args) => {
   // Filter out undefined values
-  const points = args.filter((point) => point);
+  let points = args.filter((point) => point);
 
-  points.forEach((point) => {
-    if (typeof point !== 'string') {
-      throw new Error('Error: point must be a string');
-    }
-  });
+  // Parse all strings into arrays
+  points = points.map((point) => parse(point));
 
   // Extract first, last, and middle
   const firstPoint = points[0];
