@@ -8,7 +8,7 @@ class LineGraph extends Component {
   }
 
   render() {
-    const points = [[0, 50], [20, 70], [40, 10], [60, 80]];
+    const points = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
 
     const string = drawPath(points, smooth, 10);
     return (
@@ -17,15 +17,12 @@ class LineGraph extends Component {
         viewBox="0 0 200 200"
         preserveAspectRatio="none"
       >
-        <path
-          stroke="#000000"
-          fill="none"
-          strokeWidth="1"
-          d={string}
-        />
+        <path stroke="#000000" fill="none" strokeWidth="1" d={string} />
         <g>
-          <circle cx="0" cy="50" r="2" fill="red" />
-          <circle cx="20" cy="70" r="2" fill="red" />
+          <circle cx="0" cy="10" r="2" fill="red" />
+          <circle cx="10" cy="70" r="2" fill="red" />
+          <circle cx="20" cy="45" r="2" fill="red" />
+          <circle cx="30" cy="100" r="2" fill="red" />
           <circle cx="40" cy="10" r="2" fill="red" />
           <circle cx="60" cy="80" r="2" fill="red" />
 
