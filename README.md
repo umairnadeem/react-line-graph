@@ -12,7 +12,7 @@ Supports Bezier smoothing, easy customization, and hover interactivity.
 ## Table of Contents
 
 1. [Requirements](#requirements)
-2. [Installation] (#installation)
+2. [Installation](#installation)
 3. [Usage](#Usage)
 4. [API Examples](#API-Examples)
 5. [Testing](#Testing)
