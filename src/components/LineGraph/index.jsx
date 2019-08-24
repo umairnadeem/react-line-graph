@@ -15,7 +15,7 @@ class LineGraph extends Component {
 
     const ctrlA = findCtrlPoint(10, x, y, z).join(',');
     const ctrlB = findCtrlPoint(10, y, z, a).join(',');
-    const ctrlC = findCtrlPoint(10, z, a).join(',');
+    const ctrlC = findCtrlPoint(10, z, a, undefined).join(',');
     console.log(ctrlA, ctrlB, ctrlC);
     return (
       <svg

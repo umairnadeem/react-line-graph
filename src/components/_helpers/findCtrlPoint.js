@@ -22,15 +22,21 @@ const getInterceptWithPoint = (slope, point) => {
   return y - slope * x;
 };
 
-export const findCtrlPoint = (adj = 0, ...args) => {
-  args.forEach((point) => {
-    if (typeof point !== 'string' || !args.length) {
-      throw new Error('Coordinates must be defined and of type string.');
+export const findCtrlPoint = (smoothing = 0, ...args) => {
+
+  // Filter out undefined values
+  const points = args.filter((point) => point);
+
+  points.forEach((point) => {
+    if (typeof point !== 'string') {
+      throw new Error('Error: point must be a string');
     }
   });
-  const firstPoint = args[0];
-  const midPoint = args[Math.floor(args.length / 2)];
-  const endPoint = args[args.length - 1];
+
+  // Extract first, last, and middle
+  const firstPoint = points[0];
+  const midPoint = points[Math.floor(points.length / 2)];
+  const endPoint = points[points.length - 1];
 
   // Get line from point x to z
   const [slope] = getLine(firstPoint, endPoint);
@@ -38,8 +44,10 @@ export const findCtrlPoint = (adj = 0, ...args) => {
   // Get intercept of line which passes through y
   const intercept = getInterceptWithPoint(slope, midPoint);
 
+  // Apply smoothing ratio
   let [outX] = parse(midPoint);
-  outX += -1 * adj;
+  outX += -1 * smoothing; // TODO: convert to ratio from 0 to 1
   const outY = slope * outX + intercept;
+
   return [outX, outY];
 };
