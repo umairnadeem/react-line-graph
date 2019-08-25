@@ -1,8 +1,8 @@
-import { parse, getLine, getInterceptWithPoint } from '../_helpers';
+import { parse, getLine, getInterceptWithPoint, getProximity } from '../_helpers';
 /**
  * Finds the control point for Bezier smoothing given a ratio
  * @param {Number} smoothing - The smoothing ratio, from 0 to 1
- * @param {(String\|Array[])} args - String(s) or tuples of Cartesian coordinate points
+ * @param {(String\|Number[][])} args - String(s) or tuples of Cartesian coordinate points
  */
 export const findCtrlPoint = (smoothing = 0, ...args) => {
   const points = args
@@ -21,8 +21,9 @@ export const findCtrlPoint = (smoothing = 0, ...args) => {
   const intercept = getInterceptWithPoint(slope, midPoint);
 
   // Apply smoothing ratio
+  const proximity = getProximity(points);
   let [outX] = parse(midPoint);
-  outX -= smoothing; // TODO: convert to ratio from 0 to 1
+  outX -= Math.min(Math.abs(smoothing), 1) * proximity; // TODO: convert to ratio from 0 to 1
   const outY = slope * outX + intercept;
 
   return [outX, outY];

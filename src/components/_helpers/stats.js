@@ -7,7 +7,7 @@ export const stdevX = (data) => {
   return Math.sqrt(varX).toFixed(2);
 };
 
-export const getProximityX = (data) => Math.abs(
+export const getProximity = (data) => Math.abs(
   data.reduce(
     (accum, point, i, points) => {
       const x1 = point[0];

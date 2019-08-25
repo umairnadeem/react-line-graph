@@ -10,15 +10,19 @@ class LineGraph extends Component {
 
   render() {
     const points = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
-    const string = drawPath(points, smooth, 1);
+    // const points = [];
+    // for (let i = 0; i < 100; i++) {
+    //   points.push([i, Math.random() * 50 - i + 40])
+    // }
+    const string = drawPath(points, smooth, 0.4);
     return (
       <svg
         style={{ width: '100%', height: '100%' }}
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
-        <path stroke="#000000" fill="none" strokeWidth="1" d={string} />
-        <g>
+        <path stroke="#000000" fill="none" strokeWidth="0.1" d={string} />
+        {/* <g>
           <circle cx="0" cy="10" r="2" fill="red" />
           <circle cx="10" cy="70" r="2" fill="red" />
           <circle cx="20" cy="45" r="2" fill="red" />
@@ -29,7 +33,7 @@ class LineGraph extends Component {
           <circle cx="10" cy="80" r="2" fill="blue" />
           <circle cx="30" cy="7.5" r="2" fill="blue" />
           <circle cx="50" cy="12.5" r="2" fill="blue" />
-        </g>
+        </g> */}
       </svg>
     );
   }

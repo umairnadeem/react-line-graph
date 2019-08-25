@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1566701859269" clover="3.2.0">
-  <project timestamp="1566701859269" name="All files">
-    <metrics statements="26" coveredstatements="6" conditionals="8" coveredconditionals="3" methods="12" coveredmethods="3" elements="46" coveredelements="12" complexity="0" loc="26" ncloc="26" packages="3" files="5" classes="5"/>
+<coverage generated="1566709205669" clover="3.2.0">
+  <project timestamp="1566709205669" name="All files">
+    <metrics statements="23" coveredstatements="3" conditionals="3" coveredconditionals="0" methods="8" coveredmethods="0" elements="34" coveredelements="3" complexity="0" loc="23" ncloc="23" packages="2" files="2" classes="2"/>
     <package name="_helpers">
       <metrics statements="9" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
-      <file name="index.js" path="/home/umairnadeem/Documents/personal-projects/react-line-graph/src/components/_helpers/index.js">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
       <file name="stats.js" path="/home/umairnadeem/Documents/personal-projects/react-line-graph/src/components/_helpers/stats.js">
         <metrics statements="9" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -21,15 +18,9 @@
       </file>
     </package>
     <package name="_services">
-      <metrics statements="16" coveredstatements="4" conditionals="5" coveredconditionals="3" methods="6" coveredmethods="3"/>
-      <file name="drawPath.js" path="/home/umairnadeem/Documents/personal-projects/react-line-graph/src/components/_services/drawPath.js">
-        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
-        <line num="1" count="12" type="stmt"/>
-        <line num="9" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="11" count="27" type="cond" truecount="2" falsecount="0"/>
-      </file>
+      <metrics statements="14" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="findCtrlPoint.js" path="/home/umairnadeem/Documents/personal-projects/react-line-graph/src/components/_services/findCtrlPoint.js">
-        <metrics statements="13" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="14" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="7" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
@@ -42,14 +33,8 @@
         <line num="24" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="_transformations">
-      <metrics statements="1" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="smooth.js" path="/home/umairnadeem/Documents/personal-projects/react-line-graph/src/components/_transformations/smooth.js">
-        <metrics statements="1" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="10" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
       </file>
     </package>
   </project>
