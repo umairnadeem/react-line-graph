@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import InteractionLayer from './InteractionLayer';
 import { drawPath } from '../_services';
 import { smooth } from '../_transformations';
 
@@ -10,15 +11,21 @@ class LineGraph extends Component {
   }
 
   render() {
-    const { data, smoothing } = this.props;
-    const string = drawPath(data, smooth, smoothing);
+    const {
+      data,
+      smoothing,
+      width,
+      height,
+    } = this.props;
+    const path = drawPath(data, smooth, smoothing);
     return (
       <svg
-        style={{ width: '100%', height: '100%' }}
+        style={{ width, height }}
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
-        <path stroke="#000000" fill="none" strokeWidth="0.1" d={string} />
+        <path stroke="#000000" fill="none" strokeWidth="0.1" d={path} />
+        <InteractionLayer {...{ height, width }} />
       </svg>
     );
   }
@@ -31,11 +38,15 @@ LineGraph.propTypes = {
     PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
   ]),
   smoothing: PropTypes.number,
+  width: PropTypes.string,
+  height: PropTypes.string,
 };
 
 LineGraph.defaultProps = {
   data: [],
   smoothing: 0,
+  width: '100%',
+  height: '100%',
 };
 
 export default LineGraph;
