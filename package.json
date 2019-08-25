@@ -4,7 +4,7 @@
   "description": "A React component boilerplate for NPM packages",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose",
+    "test": "jest --verbose --watch",
     "start": "webpack-dev-server --open --env=dev",
     "build": "webpack -d --watch --env=dev"
   },
