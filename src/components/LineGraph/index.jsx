@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { drawPath, smooth } from '../_helpers';
+import { drawPath } from '../_services';
+import { smooth } from '../_transformations';
 
 class LineGraph extends Component {
   constructor(props) {

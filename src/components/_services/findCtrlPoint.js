@@ -1,23 +1,4 @@
-const parse = (input) => (typeof input === 'string'
-  ? input
-    .trim()
-    .split(',')
-    .map((x) => parseInt(x, 10))
-  : input);
-
-const getLine = (from, to) => {
-  const [x1, y1] = parse(from);
-  const [x2, y2] = parse(to);
-  const slope = (y2 - y1) / (x2 - x1);
-  const intercept = y1 - slope * x1;
-  return [slope, intercept];
-};
-
-const getInterceptWithPoint = (slope, point) => {
-  const [x, y] = parse(point);
-  return y - slope * x;
-};
-
+import { parse, getLine, getInterceptWithPoint } from '../_helpers';
 /**
  * Finds the control point for Bezier smoothing given a ratio
  * @param {Number} smoothing - The smoothing ratio, from 0 to 1

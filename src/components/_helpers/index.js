@@ -1,2 +1,1 @@
-export * from './smooth';
-export * from './drawPath';
+export * from './line';

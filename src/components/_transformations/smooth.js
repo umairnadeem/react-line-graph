@@ -1,4 +1,4 @@
-import { findCtrlPoint } from './findCtrlPoint';
+import { findCtrlPoint } from '../_services';
 
 /**
  * A transformation function that smooths out the lines using Bezier transformations
