@@ -7,14 +7,19 @@ describe('Basic functionality of drawPath', () => {
     expect(integerPath).toBe('M0,10 L10,70 L20,45 L30,100 L40,10 L60,80');
   });
 
+  it('draws a valid path upon given an unordered dataset', () => {
+    const integerPath = drawPath(CONSTANTS.pointsUnordered);
+    expect(integerPath).toBe('M0,10 L10,70 L20,45 L30,100 L40,10 L60,80');
+  });
+
   it('draws a path given negative coordinates', () => {
     const negativePath = drawPath(CONSTANTS.pointsWithNegatives);
-    expect(negativePath).toBe('M0,-10 L-10,-70 L20,-45 L-30,100 L40,-10 L-60,80');
+    expect(negativePath).toBe('M-60,80 L-30,100 L-10,-70 L0,-10 L20,-45 L40,-10');
   });
 
   it('draws a path given decimal coordinates', () => {
     const decimalPath = drawPath(CONSTANTS.pointsWithDecimals);
-    expect(decimalPath).toBe('M0.001,-10.92 L-10,-7230.87 L20.21,-45');
+    expect(decimalPath).toBe('M-10,-7230.87 L0.001,-10.92 L20.21,-45');
   });
 });
 

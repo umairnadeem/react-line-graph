@@ -2,9 +2,10 @@ import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { getMousePosition } from '../_helpers';
 
-const InteractionLayer = ({ width, height }) => {
+const InteractionLayer = ({ width, height, handleHover }) => {
   const handleMove = useCallback((e) => {
     const [x, y] = getMousePosition(e);
+    handleHover(x, y);
   });
 
   return (
@@ -15,6 +16,7 @@ const InteractionLayer = ({ width, height }) => {
 InteractionLayer.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
+  handleHover: PropTypes.func.isRequired,
 };
 
 export default InteractionLayer;

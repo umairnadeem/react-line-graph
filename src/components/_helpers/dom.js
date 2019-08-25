@@ -18,6 +18,10 @@ const getDimensions = (event) => {
   return [height, width];
 };
 
+/**
+ * Gets the position of the mouse relative to the target of an event listener
+ * @param {Object} event - the event object from an event listener
+ */
 export const getMousePosition = (event) => {
   const [height, width] = getDimensions(event);
   const { nativeEvent: { offsetX, offsetY } } = event;

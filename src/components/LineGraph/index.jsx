@@ -8,6 +8,11 @@ class LineGraph extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.handleHover = this.handleHover.bind(this);
+  }
+
+  handleHover(x, y) {
+
   }
 
   render() {
@@ -25,7 +30,7 @@ class LineGraph extends Component {
         preserveAspectRatio="none"
       >
         <path stroke="#000000" fill="none" strokeWidth="0.1" d={path} />
-        <InteractionLayer {...{ height, width }} />
+        <InteractionLayer {...{ height, width }} handleHover={this.handleHover} />
       </svg>
     );
   }
