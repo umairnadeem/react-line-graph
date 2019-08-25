@@ -49,13 +49,18 @@ or
 const data = [[0,20], [-30,40], [-88.9, 9]]; // LineGraph reads these as x,y pairs
 <LineGraph data={data}/>
 ```
+or 
+```sh
+const data = [ { x: 10, y: 2 }, {...}];
+<LineGraph data={data}/>
+```
 
 Customizing your graph is easy:
 ```sh
 const data = [10,0,-2.5,540];
 const props = {
   data,
-  smooth: 0.3,
+  smoothing: 0.3,
   line: '1px solid palevioletred',
   fillBelow: 'rgba(200,67,23,0.1)',
   hover: true,

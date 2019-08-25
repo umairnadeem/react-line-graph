@@ -25,6 +25,7 @@ module.exports = {
     "import/no-dynamic-require": "off",
     "global-require": "off",
     "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
   },
   parser: 'babel-eslint',
 };

@@ -10,8 +10,8 @@ class LineGraph extends Component {
   }
 
   render() {
-    const { data } = this.props;
-    const string = drawPath(data, smooth, 0.4);
+    const { data, smoothing } = this.props;
+    const string = drawPath(data, smooth, smoothing);
     return (
       <svg
         style={{ width: '100%', height: '100%' }}
@@ -30,10 +30,12 @@ LineGraph.propTypes = {
     PropTypes.arrayOf(PropTypes.number),
     PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
   ]),
+  smoothing: PropTypes.number,
 };
 
 LineGraph.defaultProps = {
   data: [],
+  smoothing: 0,
 };
 
 export default LineGraph;
