@@ -56,7 +56,7 @@ const data = [10,0,-2.5,540];
 const props = {
   data,
   smooth: 0.3,
-  lineColor: 'palevioletred',
+  line: '1px solid palevioletred',
   fillBelow: 'rgba(200,67,23,0.1)',
   hover: true,
 };
@@ -78,7 +78,7 @@ _This renders a smooth graph with hovering enabled. The y-value is displayed upo
 | gridY     | Boolean          | false            | Shows the grid-lines along the y-axis (horizontal lines).                                                                          |         |
 | debug     | Boolean          | false            | Displays debug information on graph, including anchor and control points.                                                          |         |
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+_For more examples and usage, please refer to the [Wiki][wiki] (under development)._
 
 ## Development setup
 For developers (OS X / Linux):
@@ -111,7 +111,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 
 ## Contributing
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
+1. Fork it (<https://github.com/umairnadeem123/react-line-graph/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
@@ -123,4 +123,4 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
+[wiki]: https://github.com/umairnadeem123/react-line-graph/wiki
