@@ -65,6 +65,19 @@ const props = {
 ```
 _This renders a smooth graph with hovering enabled. The y-value is displayed upon hover by default, but this can be changed._
 
+### Props ###
+| Key       | Type             | Default          | Description                                                                                                                        | Example |
+|-----------|------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------|---------|
+| data      | Array (required) | []               | The data points to render. May be of form [a,...,b], [[a,b],...,[c,d]], or [{x: a, y: b},...,{...}] where a,b,c,d are some numbers |         |
+| smooth    | Number (0 to 1)  | 0                | The Bezier smoothing ratio to apply.                                                                                               |         |
+| line      | String           | '2px solid #000' | The width, styling, and color of the line.                                                                                         |         |
+| fillBelow | String           | 'none'           | The color of the fill below the line.                                                                                              |         |
+| fillAbove | String           | 'none'           | The color of the fill above the line.                                                                                              |         |
+| hover     | Boolean          | false            | Enables hovering. Hovering will render a line and will pass on the hovered value to children (this component is child-aware).      |         |
+| gridX     | Boolean          | false            | Shows the grid-lines along the x-axis (vertical lines).                                                                            |         |
+| gridY     | Boolean          | false            | Shows the grid-lines along the y-axis (horizontal lines).                                                                          |         |
+| debug     | Boolean          | false            | Displays debug information on graph, including anchor and control points.                                                          |         |
+
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
 ## Development setup
