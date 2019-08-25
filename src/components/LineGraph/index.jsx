@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { drawPath } from '../_services';
 import { smooth } from '../_transformations';
 
@@ -9,12 +10,8 @@ class LineGraph extends Component {
   }
 
   render() {
-    // const points = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
-    const points = [];
-    for (let i = 0; i < 100; i++) {
-      points.push([i, Math.random() * 50 - i + 40])
-    }
-    const string = drawPath(points, smooth, 0.2);
+    const { data } = this.props;
+    const string = drawPath(data, smooth, 0.4);
     return (
       <svg
         style={{ width: '100%', height: '100%' }}
@@ -22,21 +19,21 @@ class LineGraph extends Component {
         preserveAspectRatio="none"
       >
         <path stroke="#000000" fill="none" strokeWidth="0.1" d={string} />
-        {/* <g>
-          <circle cx="0" cy="10" r="2" fill="red" />
-          <circle cx="10" cy="70" r="2" fill="red" />
-          <circle cx="20" cy="45" r="2" fill="red" />
-          <circle cx="30" cy="100" r="2" fill="red" />
-          <circle cx="40" cy="10" r="2" fill="red" />
-          <circle cx="60" cy="80" r="2" fill="red" />
-
-          <circle cx="10" cy="80" r="2" fill="blue" />
-          <circle cx="30" cy="7.5" r="2" fill="blue" />
-          <circle cx="50" cy="12.5" r="2" fill="blue" />
-        </g> */}
       </svg>
     );
   }
 }
+
+LineGraph.propTypes = {
+  data: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
+    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
+  ]),
+};
+
+LineGraph.defaultProps = {
+  data: [],
+};
 
 export default LineGraph;

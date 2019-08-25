@@ -9,10 +9,11 @@ class App extends Component {
   }
 
   render() {
+    const data = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
     return (
       <div id="test">
         Some padding...
-        <LineGraph />
+        <LineGraph data={data} />
       </div>
     );
   }

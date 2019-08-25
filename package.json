@@ -28,7 +28,8 @@
     "react-dom": "^16.9.0",
     "styled-components": "^4.3.2",
     "jquery": "^3.4.1",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.12.1",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -46,7 +47,6 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "jest": "^24.9.0",
     "path": "^0.12.7",
-    "prop-types": "^15.7.2",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
