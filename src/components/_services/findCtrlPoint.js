@@ -2,7 +2,6 @@ import {
   parse,
   getLine,
   getInterceptWithPoint,
-  getProximity,
 } from '../_helpers';
 
 /**
@@ -27,9 +26,10 @@ export const findCtrlPoint = (smoothing = 0, ...args) => {
   const intercept = getInterceptWithPoint(slope, midPoint);
 
   // Apply smoothing ratio
-  const proximity = getProximity(points);
   let [outX] = parse(midPoint);
-  outX -= Math.min(Math.abs(smoothing), 1) * proximity; // TODO: convert to ratio from 0 to 1
+  const [anchor] = parse(startPoint);
+  const proximity = outX - anchor;
+  outX -= Math.min(Math.abs(smoothing), 1) * proximity;
   const outY = slope * outX + intercept;
 
   return [outX, outY];

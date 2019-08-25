@@ -9,12 +9,12 @@ class LineGraph extends Component {
   }
 
   render() {
-    const points = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
-    // const points = [];
-    // for (let i = 0; i < 100; i++) {
-    //   points.push([i, Math.random() * 50 - i + 40])
-    // }
-    const string = drawPath(points, smooth, 0.4);
+    // const points = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
+    const points = [];
+    for (let i = 0; i < 100; i++) {
+      points.push([i, Math.random() * 50 - i + 40])
+    }
+    const string = drawPath(points, smooth, 0.2);
     return (
       <svg
         style={{ width: '100%', height: '100%' }}
