@@ -17,3 +17,17 @@ describe('Basic functionality of drawPath', () => {
     expect(decimalPath).toBe('M0.001,-10.92 L-10,-7230.87 L20.21,-45');
   });
 });
+
+describe('Advanced functionality of drawPath', () => {
+  it('draws a transformed path given a transformation function', () => {
+    const transform = (point) => `H${point[0]}`;
+    const integerPath = drawPath(CONSTANTS.pointsWithIntegers, transform);
+    expect(integerPath).toBe('M0,10 H10 H20 H30 H40 H60');
+  });
+
+  it('passes in a payload to the transformation function', () => {
+    const transform = (point, _index, _points, payload) => `H${point[0] + payload}`;
+    const integerPath = drawPath(CONSTANTS.pointsWithIntegers, transform, 10);
+    expect(integerPath).toBe('M0,10 H20 H30 H40 H50 H70');
+  });
+});

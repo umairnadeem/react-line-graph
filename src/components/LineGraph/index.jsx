@@ -10,7 +10,7 @@ class LineGraph extends Component {
 
   render() {
     const points = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
-console.log(drawPath(points));
+
     const string = drawPath(points, smooth, 5);
     return (
       <svg
