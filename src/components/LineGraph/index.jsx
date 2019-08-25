@@ -10,12 +10,11 @@ class LineGraph extends Component {
 
   render() {
     const points = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
-
-    const string = drawPath(points, smooth, 5);
+    const string = drawPath(points, smooth, 1);
     return (
       <svg
         style={{ width: '100%', height: '100%' }}
-        viewBox="0 0 200 200"
+        viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
         <path stroke="#000000" fill="none" strokeWidth="1" d={string} />
