@@ -1,4 +1,10 @@
-import { parse, getLine, getInterceptWithPoint, getProximity } from '../_helpers';
+import {
+  parse,
+  getLine,
+  getInterceptWithPoint,
+  getProximity,
+} from '../_helpers';
+
 /**
  * Finds the control point for Bezier smoothing given a ratio
  * @param {Number} smoothing - The smoothing ratio, from 0 to 1
