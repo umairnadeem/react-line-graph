@@ -12,7 +12,7 @@ class App extends Component {
     // const data = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
     const data = [];
     for (let i = 0; i < 100; i++) {
-      data.push([i, 20 + Math.random() * 50])
+      data.push([i, 20 + Math.random() * 20])
     }
     const props = {
       data,

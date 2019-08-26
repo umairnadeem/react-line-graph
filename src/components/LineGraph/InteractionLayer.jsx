@@ -21,7 +21,7 @@ const InteractionLayer = ({ width, height, data }) => {
     <g>
       <Point x={pointX} y={pointY} />
       <Line x={pointX} />
-      <rect onMouseLeave={clearPoint} onMouseMove={setPosition} width={width} height={height} style={{ fill: 'transparent', stroke: 'red' }} />
+      <rect onMouseLeave={clearPoint} onMouseMove={setPosition} width={width} height={height} style={{ fill: 'transparent', stroke: 'transparent' }} />
     </g>
   );
 };

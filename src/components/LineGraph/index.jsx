@@ -25,6 +25,7 @@ class LineGraph extends Component {
         preserveAspectRatio="none"
       >
         <path stroke="#000000" fill="none" strokeWidth="0.1" d={path} />
+        <path stroke="none" fill="blue" d={`${path} V100 L 0,100 Z`} />
         <InteractionLayer {...{ height, width, data }} />
       </svg>
     );
