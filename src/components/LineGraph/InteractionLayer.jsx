@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Point from './Point';
+import Line from './Line';
 import { useMousePosition, findMidpoints } from '../_helpers';
 
 const InteractionLayer = ({ width, height, data }) => {
@@ -19,6 +20,7 @@ const InteractionLayer = ({ width, height, data }) => {
   return (
     <g>
       <Point x={pointX} y={pointY} />
+      <Line x={pointX} />
       <rect onMouseLeave={clearPoint} onMouseMove={setPosition} width={width} height={height} style={{ fill: 'transparent', stroke: 'red' }} />
     </g>
   );
