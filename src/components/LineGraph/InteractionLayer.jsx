@@ -5,7 +5,7 @@ import Line from './Line';
 import { useMousePosition, findMidpoints } from '../_helpers';
 
 const InteractionLayer = ({
-  width, height, data, accent, strokeWidth,
+  width, height, data, accent, strokeWidth, onHover,
 }) => {
   const [[x, y], setPosition] = useMousePosition();
   const [[pointX, pointY], setPoint] = useState([-100, -100]);
@@ -17,6 +17,7 @@ const InteractionLayer = ({
   useEffect(() => {
     const index = midpoints.findIndex((point) => x <= point);
     setPoint(data[index] || [-100, -100]);
+    onHover(data[index] || []);
   }, [x, y]);
 
   return (

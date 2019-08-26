@@ -9,7 +9,10 @@ Point.propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
   accent: PropTypes.string,
-  strokeWidth: PropTypes.string.isRequired,
+  strokeWidth: PropTypes.oneOf([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };
 
 Point.defaultProps = {

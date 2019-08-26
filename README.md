@@ -75,7 +75,7 @@ _This renders a smooth graph with hovering enabled. The y-value is passed down t
 |-----------|------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | data      | Array (required) | []               | The data points to render. May be of form [a,...,b], [[a,b],...,[c,d]], or [{x: a, y: b},...,{...}] where a,b,c,d are some numbers |
 | smooth    | Number (0 to 1)  | 0                | The Bezier smoothing ratio to apply.                                                                                               |
-| line      | String           | '2px solid #000' | The width, styling, and color of the line.                                                                                         |
+| accent      | String           | 'black' | The color of the line accents                                                                                         |
 | fillBelow | String           | 'none'           | The color of the fill below the line.                                                                                              |
 | fillAbove | String           | 'none'           | The color of the fill above the line.                                                                                              |
 | hover     | Boolean          | false            | Enables hovering. Hovering will render a line and will pass on the hovered value to children (this component is child-aware).      |
