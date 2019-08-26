@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Point = ({ x, y }) => (<circle cx={x} cy={y} radius="2" fill="red" />);
+const Point = ({ x, y }) => {
+  return (<circle cx={x} cy={y} r="2" fill="red" />);
+};
+
 
 Point.propTypes = {
   x: PropTypes.number,
