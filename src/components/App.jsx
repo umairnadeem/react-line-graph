@@ -9,10 +9,14 @@ class App extends Component {
   }
 
   render() {
-    const data = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
+    // const data = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
+    const data = [];
+    for (let i = 0; i < 100; i++) {
+      data.push([i, 20 + Math.random() * 50])
+    }
     const props = {
       data,
-      smoothing: 0.3,
+      smoothing: 0.5,
     };
 
     return (

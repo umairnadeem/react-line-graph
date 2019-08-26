@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Point = ({ x, y }) => {
-  return (<circle cx={x} cy={y} r="2" fill="red" />);
+  return (<circle cx={x} cy={y} r="0.5" fill="red" />);
 };
 
 
