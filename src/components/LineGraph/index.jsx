@@ -8,16 +8,11 @@ class LineGraph extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.handleHover = this.handleHover.bind(this);
-  }
-
-  handleHover(x, y) {
-
   }
 
   render() {
     const {
-      data,
+      data, // TODO: sort data and convert to tuple array
       smoothing,
       width,
       height,
@@ -30,7 +25,7 @@ class LineGraph extends Component {
         preserveAspectRatio="none"
       >
         <path stroke="#000000" fill="none" strokeWidth="0.1" d={path} />
-        <InteractionLayer {...{ height, width }} handleHover={this.handleHover} />
+        <InteractionLayer {...{ height, width, data }} />
       </svg>
     );
   }

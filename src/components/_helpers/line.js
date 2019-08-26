@@ -17,3 +17,8 @@ export const getInterceptWithPoint = (slope, point) => {
   const [x, y] = parse(point);
   return y - slope * x;
 };
+
+export const findMidpoints = ([tuple], index, points) => {
+  const next = points[index + 1] ? points[index + 1][0] : tuple;
+  return (tuple + next) / 2;
+};

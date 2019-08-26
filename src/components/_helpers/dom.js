@@ -25,7 +25,7 @@ const getDimensions = (event) => {
 export const getMousePosition = (event) => {
   const [height, width] = getDimensions(event);
   const { nativeEvent: { offsetX, offsetY } } = event;
-  const x = ((offsetX / width) * 100).toFixed(2);
-  const y = ((offsetY / height) * 100).toFixed(2);
+  const x = Number(((offsetX / width) * 100).toFixed(2));
+  const y = Number(((offsetY / height) * 100).toFixed(2));
   return [x, y];
 };

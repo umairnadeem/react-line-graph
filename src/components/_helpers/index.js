@@ -1,3 +1,3 @@
 export * from './line';
 export * from './stats';
-export * from './dom';
+export * from './hooks';
