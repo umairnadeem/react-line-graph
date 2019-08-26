@@ -61,7 +61,7 @@ const data = [10,0,-2.5,540];
 const props = {
   data,
   smoothing: 0.3,
-  line: '1px solid palevioletred',
+  accent: 'palevioletred'
   fillBelow: 'rgba(200,67,23,0.1)',
   hover: true,
 };

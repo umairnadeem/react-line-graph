@@ -16,6 +16,10 @@ class LineGraph extends Component {
       smoothing,
       width,
       height,
+      hover,
+      fillBelow,
+      accent,
+      strokeWidth,
     } = this.props;
     const path = drawPath(data, smooth, smoothing);
     return (
@@ -24,9 +28,9 @@ class LineGraph extends Component {
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
-        <path stroke="#000000" fill="none" strokeWidth="0.1" d={path} />
-        <path stroke="none" fill="blue" d={`${path} V100 L 0,100 Z`} />
-        <InteractionLayer {...{ height, width, data }} />
+        <path stroke={accent} fill="none" strokeWidth={strokeWidth} d={path} />
+        <path stroke="none" fill={fillBelow} d={`${path} V100 L 0,100 Z`} />
+        {hover && <InteractionLayer {...{ height, width, data, accent, strokeWidth }} />}
       </svg>
     );
   }
@@ -41,6 +45,10 @@ LineGraph.propTypes = {
   smoothing: PropTypes.number,
   width: PropTypes.string,
   height: PropTypes.string,
+  hover: PropTypes.bool,
+  fillBelow: PropTypes.string,
+  accent: PropTypes.string,
+  strokeWidth: PropTypes.string,
 };
 
 LineGraph.defaultProps = {
@@ -48,6 +56,10 @@ LineGraph.defaultProps = {
   smoothing: 0,
   width: '100%',
   height: '100%',
+  hover: false,
+  fillBelow: 'none',
+  accent: 'black',
+  strokeWidth: '0.5',
 };
 
 export default LineGraph;

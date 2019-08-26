@@ -4,7 +4,9 @@ import Point from './Point';
 import Line from './Line';
 import { useMousePosition, findMidpoints } from '../_helpers';
 
-const InteractionLayer = ({ width, height, data }) => {
+const InteractionLayer = ({
+  width, height, data, accent, strokeWidth,
+}) => {
   const [[x, y], setPosition] = useMousePosition();
   const [[pointX, pointY], setPoint] = useState([-100, -100]);
   const clearPoint = () => setPoint([-100, -100]);
@@ -19,8 +21,8 @@ const InteractionLayer = ({ width, height, data }) => {
 
   return (
     <g>
-      <Point x={pointX} y={pointY} />
-      <Line x={pointX} />
+      <Point x={pointX} y={pointY} accent={accent} strokeWidth={strokeWidth} />
+      <Line x={pointX} accent={accent} strokeWidth={strokeWidth} />
       <rect onMouseLeave={clearPoint} onMouseMove={setPosition} width={width} height={height} style={{ fill: 'transparent', stroke: 'transparent' }} />
     </g>
   );
@@ -30,10 +32,13 @@ InteractionLayer.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
+  accent: PropTypes.string,
+  strokeWidth: PropTypes.string.isRequired,
 };
 
 InteractionLayer.defaultProps = {
   data: [],
+  accent: 'black',
 };
 
 export default InteractionLayer;

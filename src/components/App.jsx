@@ -17,11 +17,23 @@ class App extends Component {
     const props = {
       data,
       smoothing: 0.5,
+      hover: true,
+      accent: 'rgb(73,88,209)',
+      fillBelow: 'url(#grad1)',
+      strokeWidth: '0.2',
     };
 
     return (
       <div id="test">
         Some padding...
+        <svg>
+          <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style={{ stopColor: 'rgb(132,144,235)', stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: 'rgb(206,196, 235)', stopOpacity: 1 }} />
+            </linearGradient>
+          </defs>
+        </svg>
         <LineGraph {...props} />
       </div>
     );
