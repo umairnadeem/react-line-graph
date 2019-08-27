@@ -14,7 +14,7 @@ class App extends Component {
   componentDidMount() {
     const data = [];
     for (let i = 0; i < 100; i++) {
-      data.push([i, 20 + Math.random() * 20])
+      data.push([i, 20 + Math.random().toFixed(2) * 20])
     }
     this.setState({ data });
   }

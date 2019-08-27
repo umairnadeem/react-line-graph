@@ -8,7 +8,10 @@ const Line = ({ x, accent, strokeWidth }) => (
 Line.propTypes = {
   x: PropTypes.number,
   accent: PropTypes.string.isRequired,
-  strokeWidth: PropTypes.string.isRequired,
+  strokeWidth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };
 
 Line.defaultProps = {

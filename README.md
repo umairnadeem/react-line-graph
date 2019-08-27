@@ -33,7 +33,7 @@ npm install react-line-graph
 ```
 ## Usage
 
-Usage is quite simple. First, import the component (React is required as an installed dependency or CDN):
+Usage is quite simple. First, import the component (React 16.8.0 or higher is required as an installed dependency or CDN):
 ```sh
 import { LineGraph } from 'react-line-graph'
 ```

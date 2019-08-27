@@ -30,7 +30,7 @@ class LineGraph extends Component {
         preserveAspectRatio="none"
       >
         <path stroke={accent} fill="none" strokeWidth={strokeWidth} d={path} />
-        <path stroke="none" fill={fillBelow} d={`${path} V100 L 0,100 Z`} />
+        <path stroke="none" fill={fillBelow} d={`${path} V100 L0,100 Z`} />
         {hover && <InteractionLayer {...{ height, width, data, accent, strokeWidth, onHover }} />}
       </svg>
     );
@@ -44,21 +44,22 @@ LineGraph.propTypes = {
     PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
   ]),
   smoothing: PropTypes.number,
-  width: PropTypes.oneOf([
+  width: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
-  height: PropTypes.oneOf([
+  height: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
   hover: PropTypes.bool,
   fillBelow: PropTypes.string,
   accent: PropTypes.string,
-  strokeWidth: PropTypes.oneOf([
+  strokeWidth: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
+  onHover: PropTypes.func,
 };
 
 LineGraph.defaultProps = {
@@ -70,6 +71,7 @@ LineGraph.defaultProps = {
   fillBelow: 'none',
   accent: 'black',
   strokeWidth: '0.5',
+  onHover: () => {},
 };
 
 export default LineGraph;

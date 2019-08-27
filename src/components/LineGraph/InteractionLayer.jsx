@@ -34,7 +34,11 @@ InteractionLayer.propTypes = {
   height: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
   accent: PropTypes.string,
-  strokeWidth: PropTypes.string.isRequired,
+  strokeWidth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  onHover: PropTypes.func.isRequired,
 };
 
 InteractionLayer.defaultProps = {

@@ -9,7 +9,7 @@ Point.propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
   accent: PropTypes.string,
-  strokeWidth: PropTypes.oneOf([
+  strokeWidth: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]).isRequired,
