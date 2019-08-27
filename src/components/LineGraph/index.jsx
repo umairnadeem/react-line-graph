@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import InteractionLayer from './InteractionLayer';
 import { drawPath } from '../_services';
 import { smooth } from '../_transformations';
+import { autoScale } from '../_helpers';
 
 class LineGraph extends Component {
   constructor(props) {
@@ -24,14 +25,15 @@ class LineGraph extends Component {
     } = this.props;
     const path = drawPath(data, smooth, smoothing);
     return (
-      <svg
-        style={{ width, height }}
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
+      <svg style={{ width, height }} viewBox="0 0 100 100" preserveAspectRatio="none">
         <path stroke={accent} fill="none" strokeWidth={strokeWidth} d={path} />
-        <path stroke="none" fill={fillBelow} d={`${path} V100 L0,100 Z`} />
-        {hover && <InteractionLayer {...{ height, width, data, accent, strokeWidth, onHover }} />}
+        <path stroke="none" fill={fillBelow} d={`${path} V100 H0 Z`} />
+        {hover && (
+        <InteractionLayer {...{
+          height, width, data, accent, strokeWidth, onHover,
+        }}
+        />
+        )}
       </svg>
     );
   }
@@ -44,21 +46,12 @@ LineGraph.propTypes = {
     PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
   ]),
   smoothing: PropTypes.number,
-  width: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  height: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   hover: PropTypes.bool,
   fillBelow: PropTypes.string,
   accent: PropTypes.string,
-  strokeWidth: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  strokeWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onHover: PropTypes.func,
 };
 
