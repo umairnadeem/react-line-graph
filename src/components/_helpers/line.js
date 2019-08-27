@@ -43,9 +43,9 @@ export const autoScale = (points, compression = 0, xCeil = 95, yCeil = 95) => {
   ]);
 };
 
-export const invertY = (data) => data.map(([x, y]) => {
+export const invertY = (data, yCeil = 100) => data.map(([x, y]) => {
   if (x !== undefined && y !== undefined) {
-    return [x, 100 - y];
+    return [x, yCeil - y];
   }
   return [];
 });

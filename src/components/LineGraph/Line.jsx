@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Line = ({ x, accent, strokeWidth }) => (
-  <line x1={x} x2={x} y1={0} y2={100} strokeWidth={strokeWidth / 2} stroke={accent} />
+const Line = ({ x, accent, strokeWidth, calcHeight }) => (
+  <line x1={x} x2={x} y1={0} y2={calcHeight} strokeWidth={strokeWidth / 2} stroke={accent} />
 );
 
 Line.propTypes = {

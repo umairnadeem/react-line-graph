@@ -8,7 +8,16 @@ import { autoScale, invertY, parseData } from '../_helpers';
 class LineGraph extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      calcHeight: 0,
+      calcWidth: 0,
+    };
+    this.container = React.createRef();
+  }
+
+  componentDidMount() {
+    const { current: { clientHeight, clientWidth } } = this.container;
+    this.setState({ calcHeight: clientHeight, calcWidth: clientWidth });
   }
 
   render() {
@@ -23,22 +32,25 @@ class LineGraph extends Component {
       strokeWidth,
       onHover,
     } = this.props;
+    const { calcHeight, calcWidth } = this.state;
 
     // Parse, sort and scale the data
     const sortedData = parseData(data).sort((a, b) => a[0] - b[0]);
     const adjData = invertY(autoScale(
       sortedData,
       0.1,
-    ));
+      calcWidth,
+      calcHeight,
+    ), calcHeight);
 
     const path = drawPath(adjData, smooth, smoothing);
     return (
-      <svg style={{ width, height }} viewBox="0 0 100 100" preserveAspectRatio="none">
+      <svg ref={this.container} style={{ width, height }} viewBox={`0 0 ${calcWidth} ${calcHeight}`} preserveAspectRatio="none">
         <path stroke={accent} fill="none" strokeWidth={strokeWidth} d={path} />
-        <path stroke="none" fill={fillBelow} d={`${path} V100 H0 Z`} />
+        <path stroke="none" fill={fillBelow} d={`${path} V${calcHeight} H0 Z`} />
         {hover && (
         <InteractionLayer {...{
-          height, width, adjData, sortedData, accent, strokeWidth, onHover,
+          calcWidth, calcHeight, adjData, sortedData, accent, strokeWidth, onHover,
         }}
         />
         )}
