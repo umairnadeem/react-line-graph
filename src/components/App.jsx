@@ -31,7 +31,7 @@ class App extends Component {
       hover: true,
       accent: 'rgb(73,88,209)',
       fillBelow: 'url(#grad1)',
-      strokeWidth: 0.9,
+      strokeWidth: 0.5,
       onHover: this.handleHover.bind(this),
     };
 

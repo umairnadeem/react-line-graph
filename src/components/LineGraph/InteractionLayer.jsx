@@ -5,19 +5,19 @@ import Line from './Line';
 import { useMousePosition, findMidpoints } from '../_helpers';
 
 const InteractionLayer = ({
-  width, height, data, accent, strokeWidth, onHover,
+  width, height, adjData, sortedData, accent, strokeWidth, onHover,
 }) => {
   const [[x, y], setPosition] = useMousePosition();
   const [[pointX, pointY], setPoint] = useState([-100, -100]);
   const clearPoint = () => setPoint([-100, -100]);
-  const midpoints = data
+  const midpoints = adjData
     .sort((a, b) => a[0] - b[0]) // TODO: remove when sorted at parent
     .map(findMidpoints);
 
   useEffect(() => {
     const index = midpoints.findIndex((point) => x <= point);
-    setPoint(data[index] || [-100, -100]);
-    onHover(data[index] || []);
+    setPoint(adjData[index] || [-100, -100]);
+    if (sortedData[index]) onHover(sortedData[index]);
   }, [x, y]);
 
   return (
@@ -32,7 +32,8 @@ const InteractionLayer = ({
 InteractionLayer.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
-  data: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
+  adjData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  sortedData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
   accent: PropTypes.string,
   strokeWidth: PropTypes.oneOfType([
     PropTypes.string,
@@ -42,7 +43,6 @@ InteractionLayer.propTypes = {
 };
 
 InteractionLayer.defaultProps = {
-  data: [],
   accent: 'black',
 };
 

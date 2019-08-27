@@ -23,7 +23,7 @@ export const findMidpoints = ([tuple], index, points) => {
   return (tuple + next) / 2;
 };
 
-export const autoScale = (points, compression = 0, xCeil = 100, yCeil = 100) => {
+export const autoScale = (points, compression = 0, xCeil = 95, yCeil = 95) => {
   const [xMax, yMax, xMin, yMin] = points.reduce((accum, elem) => ([
     Math.max(elem[0], accum[0]),
     Math.max(elem[1], accum[1]),
@@ -33,8 +33,8 @@ export const autoScale = (points, compression = 0, xCeil = 100, yCeil = 100) => 
   const xDiff = (xMax - xMin) || 1;
   const yDiff = (yMax - yMin) || 1;
   const compFactor = (1 - Math.min(Math.abs(compression), 1));
-  const xFactor = (xCeil / xDiff).toFixed(2);
-  const yFactor = ((yCeil / yDiff) * compFactor).toFixed(2);
+  const xFactor = xCeil / xDiff;
+  const yFactor = (yCeil / yDiff) * compFactor;
   const xConst = xCeil - (xFactor * xMax);
   const yConst = yCeil - (yFactor * yMax);
   return points.map(([x, y]) => [
@@ -42,3 +42,10 @@ export const autoScale = (points, compression = 0, xCeil = 100, yCeil = 100) => 
     Number((y * yFactor + yConst).toFixed(2)),
   ]);
 };
+
+export const invertY = (data) => data.map(([x, y]) => {
+  if (x !== undefined && y !== undefined) {
+    return [x, 100 - y];
+  }
+  return [];
+});

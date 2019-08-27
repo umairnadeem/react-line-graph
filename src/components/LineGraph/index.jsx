@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import InteractionLayer from './InteractionLayer';
 import { drawPath } from '../_services';
 import { smooth } from '../_transformations';
-import { autoScale } from '../_helpers';
+import { autoScale, invertY, parseData } from '../_helpers';
 
 class LineGraph extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class LineGraph extends Component {
 
   render() {
     const {
-      data, // TODO: sort data and convert to tuple array
+      data,
       smoothing,
       width,
       height,
@@ -23,14 +23,22 @@ class LineGraph extends Component {
       strokeWidth,
       onHover,
     } = this.props;
-    const path = drawPath(data, smooth, smoothing);
+
+    // Parse, sort and scale the data
+    const sortedData = parseData(data).sort((a, b) => a[0] - b[0]);
+    const adjData = invertY(autoScale(
+      sortedData,
+      0.1,
+    ));
+
+    const path = drawPath(adjData, smooth, smoothing);
     return (
       <svg style={{ width, height }} viewBox="0 0 100 100" preserveAspectRatio="none">
         <path stroke={accent} fill="none" strokeWidth={strokeWidth} d={path} />
         <path stroke="none" fill={fillBelow} d={`${path} V100 H0 Z`} />
         {hover && (
         <InteractionLayer {...{
-          height, width, data, accent, strokeWidth, onHover,
+          height, width, adjData, sortedData, accent, strokeWidth, onHover,
         }}
         />
         )}
