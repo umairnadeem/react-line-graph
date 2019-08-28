@@ -13,19 +13,16 @@ export const createSVGElement = (tag, attr) => {
   return element;
 };
 
-const getDimensions = (event) => {
-  const { height, width } = event.target.getBoundingClientRect();
-  return [height, width];
+export const getDimensions = (event) => {
+  const { width, height } = event.target.getBoundingClientRect();
+  return [width, height];
 };
 
 /**
  * Gets the position of the mouse relative to the target of an event listener
  * @param {Object} event - the event object from an event listener
  */
-export const getMousePosition = (event, calcWidth, calcHeight) => {
-  const [height, width] = getDimensions(event);
+export const getMousePosition = (event) => {
   const { nativeEvent: { offsetX, offsetY } } = event;
-  const x = Number(((offsetX / width) * calcWidth).toFixed(2));
-  const y = Number(((offsetY / height) * calcHeight).toFixed(2));
-  return [x, y];
+  return [offsetX, offsetY];
 };

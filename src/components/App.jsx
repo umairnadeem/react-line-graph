@@ -12,10 +12,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const data = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
-    // for (let i = 0; i < 100; i++) {
-    //   data.push([i, 20])
-    // }
+    const data = [];
+    for (let i = 0; i < 100; i++) {
+      data.push([i, Math.random() * 20])
+    }
     this.setState({ data });
   }
 
@@ -27,14 +27,15 @@ class App extends Component {
     const { data, value } = this.state;
     const props = {
       data,
-      smoothing: 0.5,
+      smoothing: 0.3,
       hover: true,
       accent: 'rgb(73,88,209)',
       fillBelow: 'url(#grad1)',
-      strokeWidth: 2,
+      strokeWidth: 3,
       onHover: this.handleHover.bind(this),
       width: 2000,
-      height: 1000,
+      height: 500,
+      compression: 0,
     };
 
     return (

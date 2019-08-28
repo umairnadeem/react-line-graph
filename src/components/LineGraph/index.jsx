@@ -31,6 +31,7 @@ class LineGraph extends Component {
       accent,
       strokeWidth,
       onHover,
+      compression,
     } = this.props;
     const { calcHeight, calcWidth } = this.state;
 
@@ -38,7 +39,7 @@ class LineGraph extends Component {
     const sortedData = parseData(data).sort((a, b) => a[0] - b[0]);
     const adjData = invertY(autoScale(
       sortedData,
-      0.1,
+      compression,
       calcWidth,
       calcHeight,
     ), calcHeight);

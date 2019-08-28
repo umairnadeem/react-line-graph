@@ -19,6 +19,7 @@ Supports Bezier smoothing, easy customization, and hover interactivity.
 6. [Release History](#release-history)
 7. [Meta](#meta)
 8. [Contributing](#contributing)
+9. [To-do](#todo)
 
 ## Requirements
 
@@ -131,3 +132,9 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
 [wiki]: https://github.com/umairnadeem123/react-line-graph/wiki
+
+## TODO
+- Put all helper methods in a class
+- Fix smoothing algorithm to be more precise using cubic Beziers
+- Clean up prop passing in InteractionLayer
+- 
