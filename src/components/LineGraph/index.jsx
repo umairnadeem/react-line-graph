@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { drawPath } from '../_services';
 import { smooth } from '../_transformations';
-import { autoScale, invertY, parseData } from '../_helpers';
+import { normalize, invertY, parseData } from '../_helpers';
 import InteractionLayer from './InteractionLayer';
 import ResponsiveSvg from './ResponsiveSvg';
 import Path from './Path';
@@ -39,18 +39,20 @@ class LineGraph extends Component {
       compression,
     } = this.props;
 
+    // Parse, sort and normalize the data to calculate path
     const { calcHeight, calcWidth } = this.state;
-
-    // Parse, sort and scale the data
     const sortedData = parseData(data).sort((a, b) => a[0] - b[0]);
-    const adjData = invertY(autoScale(sortedData, compression, calcWidth, calcHeight), calcHeight);
-
+    const adjData = invertY(normalize(sortedData, compression, calcWidth, calcHeight), calcHeight);
     const path = drawPath(adjData, smooth, smoothing);
+
     return (
       <ResponsiveSvg
         ref={this.container}
         {...{
-          width, height, calcWidth, calcHeight,
+          width,
+          height,
+          calcWidth,
+          calcHeight,
         }}
       >
         <Path {...{ accent, strokeWidth, path }} />
