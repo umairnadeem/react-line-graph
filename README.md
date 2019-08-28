@@ -143,6 +143,8 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Update compression algorithm to be two-way (compress highs and lows)
 - Allow 3 different data input types (create helper function 'parse')
 - Remove unnecessary re-render of graph upon setState in parent component
+- Refactor LineGraph's index.jsx with React Hooks
+- Publish on NPM, update README tags
 
 ## Challenges
 - Make hovering compatible with responsive height/width: need 3 data points per axis (viewBox dimension, cursor position, current dimension)
