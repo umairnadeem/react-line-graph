@@ -7,7 +7,7 @@
 
 Supports Bezier smoothing, easy customization, and hover interactivity.
 
-![](header.png)
+![Example demo](demo/demo.gif)
 
 ## Table of Contents
 
@@ -86,7 +86,7 @@ _This renders a smooth graph with hovering enabled. The y-value is passed down t
 | debug     | Boolean          | false            | Displays debug information on graph, including anchor and control points.                                                          |
 | width     | String           | '100%'           | The width of the component within a container element.                                                                             |
 | height    | String           | '100%'           | The height of the component within a container element.                                                                            |
-| Compression| Number           | 0           | The compression factor of the data-set from 0 to 1. Compresses data along the Y-axis.                            |
+| compression| Number           | 0           | The compression factor of the data-set from 0 to 1. Compresses data along the Y-axis.                            |
 
 _For more examples and usage, please refer to the [Wiki][wiki] (under development)._
 
