@@ -20,6 +20,7 @@ Supports Bezier smoothing, easy customization, and hover interactivity.
 7. [Meta](#meta)
 8. [Contributing](#contributing)
 9. [To-do](#todo)
+10. [Challenges](#challenges)
 
 ## Requirements
 
@@ -85,6 +86,7 @@ _This renders a smooth graph with hovering enabled. The y-value is passed down t
 | debug     | Boolean          | false            | Displays debug information on graph, including anchor and control points.                                                          |
 | width     | String           | '100%'           | The width of the component within a container element.                                                                             |
 | height    | String           | '100%'           | The height of the component within a container element.                                                                            |
+| Compression| Number           | 0           | The compression factor of the data-set from 0 to 1. Compresses data along the Y-axis.                            |
 
 _For more examples and usage, please refer to the [Wiki][wiki] (under development)._
 
@@ -141,3 +143,10 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Update compression algorithm to be two-way (compress highs and lows)
 - Allow 3 different data input types (create helper function 'parse')
 - Remove unnecessary re-render of graph upon setState in parent component
+
+## Challenges
+- Make hovering compatible with responsive height/width: need 3 data points per axis (viewBox dimension, cursor position, current dimension)
+- Pass up hovered point information into parent
+- Allow parent to setState with point information without triggering unecessary re-render
+- Writing a smoothing algorithm using cubic Bezier without artifacts
+- Modular transformation callback in drawPath helper

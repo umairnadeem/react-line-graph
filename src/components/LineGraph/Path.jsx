@@ -8,7 +8,7 @@ const Path = ({ accent, strokeWidth, path }) => (
 Path.propTypes = {
   accent: PropTypes.string.isRequired,
   strokeWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  path: PropTypes.string.isRequired,
+  path: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
 };
 
 export default Path;
