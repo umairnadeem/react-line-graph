@@ -11,12 +11,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // const data = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
+    const data = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
     // const data = [[0, 100], [100, 50]];
-    const data = [];
-    for (let i = 0; i < 100; i++) {
-      data.push([i, Math.random() * 20])
-    }
+    // const data = [];
+    // for (let i = 0; i < 100; i++) {
+    //   data.push([i, Math.random() * 20]);
+    // }
     this.setState({ data });
   }
 

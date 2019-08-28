@@ -13,9 +13,16 @@ const InteractionLayer = ({
   strokeWidth,
   onHover,
 }) => {
+  // Store mouse position in state
   const [[x, y], setPosition] = useMousePosition([0, 0], calcWidth, calcHeight);
+
+  // Store point position in state
   const [[pointX, pointY], setPoint] = useState([-calcWidth, -calcHeight]);
+
+  // => Removes point from view
   const clearPoint = () => setPoint([-calcWidth, -calcHeight]);
+
+  // Find midpoints of data-set (to toggle hover)
   const midpoints = adjData.map(findMidpoints);
 
   useEffect(() => {
@@ -44,13 +51,9 @@ InteractionLayer.propTypes = {
   calcHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   adjData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
   sortedData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-  accent: PropTypes.string,
+  accent: PropTypes.string.isRequired,
   strokeWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   onHover: PropTypes.func.isRequired,
-};
-
-InteractionLayer.defaultProps = {
-  accent: 'black',
 };
 
 export default InteractionLayer;

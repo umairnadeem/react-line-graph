@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InteractionLayer from './InteractionLayer';
+import ResponsiveSvg from './ResponsiveSvg';
 import { drawPath } from '../_services';
 import { smooth } from '../_transformations';
 import { autoScale, invertY, parseData } from '../_helpers';
@@ -16,7 +17,9 @@ class LineGraph extends Component {
   }
 
   componentDidMount() {
-    const { current: { clientHeight, clientWidth } } = this.container;
+    const {
+      current: { clientHeight, clientWidth },
+    } = this.container;
     this.setState({ calcHeight: clientHeight, calcWidth: clientWidth });
   }
 
@@ -33,29 +36,44 @@ class LineGraph extends Component {
       onHover,
       compression,
     } = this.props;
+
     const { calcHeight, calcWidth } = this.state;
 
     // Parse, sort and scale the data
     const sortedData = parseData(data).sort((a, b) => a[0] - b[0]);
-    const adjData = invertY(autoScale(
-      sortedData,
-      compression,
-      calcWidth,
-      calcHeight,
-    ), calcHeight);
+    const adjData = invertY(autoScale(sortedData, compression, calcWidth, calcHeight), calcHeight);
 
     const path = drawPath(adjData, smooth, smoothing);
     return (
-      <svg ref={this.container} style={{ width, height }} viewBox={`0 0 ${calcWidth} ${calcHeight}`} preserveAspectRatio="none">
+      // <svg
+      //   ref={this.container}
+      //   style={{ width, height }}
+      //   viewBox={`0 0 ${calcWidth} ${calcHeight}`}
+      //   preserveAspectRatio="none"
+      // >
+      <ResponsiveSvg
+        ref={this.container}
+        {...{
+          width, height, calcWidth, calcHeight,
+        }}
+      >
         <path stroke={accent} fill="none" strokeWidth={strokeWidth} d={path} />
         <path stroke="none" fill={fillBelow} d={`${path} V${calcHeight} H0 Z`} />
         {hover && (
-        <InteractionLayer {...{
-          calcWidth, calcHeight, adjData, sortedData, accent, strokeWidth, onHover,
-        }}
-        />
+          <InteractionLayer
+            {...{
+              calcWidth,
+              calcHeight,
+              adjData,
+              sortedData,
+              accent,
+              strokeWidth,
+              onHover,
+            }}
+          />
         )}
-      </svg>
+      </ResponsiveSvg>
+      // </svg>
     );
   }
 }
@@ -74,6 +92,7 @@ LineGraph.propTypes = {
   accent: PropTypes.string,
   strokeWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onHover: PropTypes.func,
+  compression: PropTypes.number,
 };
 
 LineGraph.defaultProps = {
@@ -86,6 +105,7 @@ LineGraph.defaultProps = {
   accent: 'black',
   strokeWidth: '0.5',
   onHover: () => {},
+  compression: 0,
 };
 
 export default LineGraph;

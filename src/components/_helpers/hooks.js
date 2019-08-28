@@ -6,7 +6,6 @@ export const useMousePosition = (initialState = [0, 0], calcWidth, calcHeight) =
   const setPosition = useCallback((e) => { // TODO: useCallback unnecessary?
     const [x, y] = getMousePosition(e, calcWidth, calcHeight);
     if (x <= calcWidth && y <= calcHeight) {
-      console.log('hit')
       changePosition([x, y]);
     } else changePosition([-1 * calcWidth, -1 * calcHeight]);
   });
