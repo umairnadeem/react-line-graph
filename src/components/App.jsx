@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import LineGraph from './LineGraph';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +11,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // const data = [[0, 10], [10, 70], [20, 45], [30, 100], [40, 10], [60, 80]];
+    // const data = [[0, 100], [100, 50]];
     const data = [];
     for (let i = 0; i < 100; i++) {
       data.push([i, Math.random() * 20])
@@ -33,8 +34,6 @@ class App extends Component {
       fillBelow: 'url(#grad1)',
       strokeWidth: 3,
       onHover: this.handleHover.bind(this),
-      width: 2000,
-      height: 500,
       compression: 0,
     };
 

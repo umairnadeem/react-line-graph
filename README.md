@@ -138,3 +138,6 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Fix smoothing algorithm to be more precise using cubic Beziers
 - Clean up prop passing in InteractionLayer
 - Refactor hover to not use setState (better performance)
+- Update compression algorithm to be two-way (compress highs and lows)
+- Allow 3 different data input types (create helper function 'parse')
+- Remove unnecessary re-render of graph upon setState in parent component
