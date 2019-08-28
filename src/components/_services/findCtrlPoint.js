@@ -32,5 +32,5 @@ export const findCtrlPoint = (smoothing = 0, ...args) => {
   outX -= Math.min(Math.abs(smoothing), 1) * proximity;
   const outY = slope * outX + intercept;
 
-  return [outX, outY];
+  return [outX || 0, outY || 0];
 };

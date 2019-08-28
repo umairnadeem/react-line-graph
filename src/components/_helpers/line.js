@@ -23,7 +23,7 @@ export const findMidpoints = ([tuple], index, points) => {
   return (tuple + next) / 2;
 };
 
-export const normalize = (points, compression = 0, xCeil = 0, yCeil = 0) => {
+export const normalize = (points = [], compression = 0, xCeil = 0, yCeil = 0) => {
   const [xMax, yMax, xMin, yMin] = points.reduce((accum, elem) => ([
     Math.max(elem[0], accum[0]),
     Math.max(elem[1], accum[1]),
