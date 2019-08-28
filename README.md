@@ -87,6 +87,7 @@ _This renders a smooth graph with hovering enabled. The y-value is passed down t
 | width     | String           | '100%'           | The width of the component within a container element.                                                                             |
 | height    | String           | '100%'           | The height of the component within a container element.                                                                            |
 | compression| Number           | 0           | The compression factor of the data-set from 0 to 1. Compresses data along the Y-axis.                            |
+| onHover| Function           | () => {}           | The callback function to which an array containing currently hovered point ([x, y]) is passed when the user hovers. Useful for displaying the hovered value in the parent component (the one you write). Only active when 'hover' is set to true.          |
 
 _For more examples and usage, please refer to the [Wiki][wiki] (under development)._
 
@@ -113,15 +114,15 @@ npm test
 
 ## Meta
 
-Umair Nadeem – [@UmairNadeem](https://github.com/umairnadeem123) – umair@umairnadeem.com
+Umair Nadeem – [@UmairNadeem](https://github.com/umairnadeem) – umair@umairnadeem.com
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/umairnadeem123/react-line-graph](https://github.com/umairnadeem123/)
+[https://github.com/umairnadeem/react-line-graph](https://github.com/umairnadeem/)
 
 ## Contributing
 
-1. Fork it (<https://github.com/umairnadeem123/react-line-graph/fork>)
+1. Fork it (<https://github.com/umairnadeem/react-line-graph/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
@@ -133,17 +134,17 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/umairnadeem123/react-line-graph/wiki
+[wiki]: https://github.com/umairnadeem/react-line-graph/wiki
 
 ## TODO
 - Put all helper methods in a class
 - Fix smoothing algorithm to be more precise using cubic Beziers
-- Clean up prop passing in InteractionLayer
+- Clean up prop passing in InteractionLayer*
 - Refactor hover to not use setState (better performance)
 - Update compression algorithm to be two-way (compress highs and lows)
 - Allow 3 different data input types (create helper function 'parse')
 - Remove unnecessary re-render of graph upon setState in parent component
-- Refactor LineGraph's index.jsx with React Hooks
+- Refactor LineGraph's index.jsx with React Hooks*
 - Publish on NPM, update README tags
 - Allow multiple transformation functions in drawPath function, using piping
 
