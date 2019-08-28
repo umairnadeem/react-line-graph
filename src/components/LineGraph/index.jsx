@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import InteractionLayer from './InteractionLayer';
-import ResponsiveSvg from './ResponsiveSvg';
 import { drawPath } from '../_services';
 import { smooth } from '../_transformations';
 import { autoScale, invertY, parseData } from '../_helpers';
+import InteractionLayer from './InteractionLayer';
+import ResponsiveSvg from './ResponsiveSvg';
+import Path from './Path';
+import Fill from './Fill';
 
 class LineGraph extends Component {
   constructor(props) {
@@ -45,20 +47,14 @@ class LineGraph extends Component {
 
     const path = drawPath(adjData, smooth, smoothing);
     return (
-      // <svg
-      //   ref={this.container}
-      //   style={{ width, height }}
-      //   viewBox={`0 0 ${calcWidth} ${calcHeight}`}
-      //   preserveAspectRatio="none"
-      // >
       <ResponsiveSvg
         ref={this.container}
         {...{
           width, height, calcWidth, calcHeight,
         }}
       >
-        <path stroke={accent} fill="none" strokeWidth={strokeWidth} d={path} />
-        <path stroke="none" fill={fillBelow} d={`${path} V${calcHeight} H0 Z`} />
+        <Path {...{ accent, strokeWidth, path }} />
+        <Fill {...{ calcHeight, fillBelow, path }} />
         {hover && (
           <InteractionLayer
             {...{
@@ -73,7 +69,6 @@ class LineGraph extends Component {
           />
         )}
       </ResponsiveSvg>
-      // </svg>
     );
   }
 }
