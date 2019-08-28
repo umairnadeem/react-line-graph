@@ -145,6 +145,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Remove unnecessary re-render of graph upon setState in parent component
 - Refactor LineGraph's index.jsx with React Hooks
 - Publish on NPM, update README tags
+- Allow multiple transformation functions in drawPath function, using piping
 
 ## Challenges
 - Make hovering compatible with responsive height/width: need 3 data points per axis (viewBox dimension, cursor position, current dimension)

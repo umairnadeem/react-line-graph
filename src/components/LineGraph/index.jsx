@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, {
+  useState, useEffect, useRef,
+} from 'react';
 import PropTypes from 'prop-types';
 import { drawPath } from '../_services';
 import { smooth } from '../_transformations';
@@ -8,72 +10,60 @@ import ResponsiveSvg from './ResponsiveSvg';
 import Path from './Path';
 import Fill from './Fill';
 
-class LineGraph extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      calcHeight: 0,
-      calcWidth: 0,
-    };
-    this.container = React.createRef();
-  }
+const LineGraph = ({
+  data,
+  smoothing,
+  width,
+  height,
+  hover,
+  fillBelow,
+  accent,
+  strokeWidth,
+  onHover,
+  compression,
+}) => {
+  const [[calcWidth, calcHeight], setDimensions] = useState([0, 0]);
+  const container = useRef();
 
-  componentDidMount() {
+  // Parse, sort and normalize the data to calculate path
+  const sortedData = parseData(data).sort((a, b) => a[0] - b[0]);
+  const adjData = invertY(normalize(sortedData, compression, calcWidth, calcHeight), calcHeight);
+  const path = drawPath(adjData, smooth, smoothing);
+
+  useEffect(() => {
     const {
-      current: { clientHeight, clientWidth },
-    } = this.container;
-    this.setState({ calcHeight: clientHeight, calcWidth: clientWidth });
-  }
-
-  render() {
-    const {
-      data,
-      smoothing,
-      width,
-      height,
-      hover,
-      fillBelow,
-      accent,
-      strokeWidth,
-      onHover,
-      compression,
-    } = this.props;
-
-    // Parse, sort and normalize the data to calculate path
-    const { calcHeight, calcWidth } = this.state;
-    const sortedData = parseData(data).sort((a, b) => a[0] - b[0]);
-    const adjData = invertY(normalize(sortedData, compression, calcWidth, calcHeight), calcHeight);
-    const path = drawPath(adjData, smooth, smoothing);
-
-    return (
-      <ResponsiveSvg
-        ref={this.container}
-        {...{
-          width,
-          height,
-          calcWidth,
-          calcHeight,
-        }}
-      >
-        <Path {...{ accent, strokeWidth, path }} />
-        <Fill {...{ calcHeight, fillBelow, path }} />
-        {hover && (
-          <InteractionLayer
-            {...{
-              calcWidth,
-              calcHeight,
-              adjData,
-              sortedData,
-              accent,
-              strokeWidth,
-              onHover,
-            }}
-          />
-        )}
-      </ResponsiveSvg>
-    );
-  }
-}
+      current: { clientWidth, clientHeight },
+    } = container;
+    setDimensions([clientWidth, clientHeight]);
+  }, []);
+  return (
+    <ResponsiveSvg
+      ref={container}
+      {...{
+        width,
+        height,
+        calcWidth,
+        calcHeight,
+      }}
+    >
+      <Path {...{ accent, strokeWidth, path }} />
+      <Fill {...{ calcHeight, fillBelow, path }} />
+      {hover && (
+        <InteractionLayer
+          {...{
+            calcWidth,
+            calcHeight,
+            adjData,
+            sortedData,
+            accent,
+            strokeWidth,
+            onHover,
+          }}
+        />
+      )}
+    </ResponsiveSvg>
+  );
+};
 
 LineGraph.propTypes = {
   data: PropTypes.oneOfType([
