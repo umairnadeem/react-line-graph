@@ -1,7 +1,4 @@
-import React, {
-  useState, useEffect, useRef,
-} from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect, useRef } from 'react';
 import { drawPath } from '../_services';
 import { smooth } from '../_transformations';
 import { normalize, invertY, parseData } from '../_helpers';
@@ -9,6 +6,7 @@ import InteractionLayer from './InteractionLayer';
 import ResponsiveSvg from './ResponsiveSvg';
 import Path from './Path';
 import Fill from './Fill';
+import types from '../_types';
 
 const LineGraph = ({
   data,
@@ -36,6 +34,7 @@ const LineGraph = ({
     } = container;
     setDimensions([clientWidth, clientHeight]);
   }, []);
+
   return (
     <ResponsiveSvg
       ref={container}
@@ -66,20 +65,16 @@ const LineGraph = ({
 };
 
 LineGraph.propTypes = {
-  data: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)),
-    PropTypes.arrayOf(PropTypes.number),
-    PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
-  ]),
-  smoothing: PropTypes.number,
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  hover: PropTypes.bool,
-  fillBelow: PropTypes.string,
-  accent: PropTypes.string,
-  strokeWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onHover: PropTypes.func,
-  compression: PropTypes.number,
+  data: types.data,
+  smoothing: types.smoothing,
+  width: types.width,
+  height: types.height,
+  hover: types.hover,
+  fillBelow: types.fillBelow,
+  accent: types.accent,
+  strokeWidth: types.strokeWidth,
+  onHover: types.onHover,
+  compression: types.compression,
 };
 
 LineGraph.defaultProps = {

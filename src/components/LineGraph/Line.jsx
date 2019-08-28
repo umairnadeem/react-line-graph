@@ -1,17 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import types from '../_types';
 
-const Line = ({ x, accent, strokeWidth, calcHeight }) => (
+const Line = ({
+  x, accent, strokeWidth, calcHeight,
+}) => (
   <line x1={x} x2={x} y1={0} y2={calcHeight} strokeWidth={strokeWidth / 2} stroke={accent} />
 );
 
 Line.propTypes = {
-  x: PropTypes.number,
-  accent: PropTypes.string.isRequired,
-  strokeWidth: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
+  x: types.x,
+  accent: types.accent.isRequired,
+  strokeWidth: types.strokeWidth.isRequired,
+  calcHeight: types.calcHeight.isRequired,
 };
 
 Line.defaultProps = {

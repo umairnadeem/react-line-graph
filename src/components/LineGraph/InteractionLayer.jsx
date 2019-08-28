@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import Point from './Point';
 import Line from './Line';
 import { useMousePosition, findMidpoints } from '../_helpers';
+import types from '../_types';
 
 const InteractionLayer = ({
   calcWidth,
@@ -41,13 +41,13 @@ const InteractionLayer = ({
 };
 
 InteractionLayer.propTypes = {
-  calcWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  calcHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  adjData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-  sortedData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-  accent: PropTypes.string.isRequired,
-  strokeWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  onHover: PropTypes.func.isRequired,
+  calcWidth: types.calcWidth.isRequired,
+  calcHeight: types.calcHeight.isRequired,
+  adjData: types.adjData.isRequired,
+  sortedData: types.sortedData.isRequired,
+  accent: types.accent.isRequired,
+  strokeWidth: types.strokeWidth.isRequired,
+  onHover: types.onHover.isRequired,
 };
 
 export default InteractionLayer;

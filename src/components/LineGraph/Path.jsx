@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import types from '../_types';
 
 const Path = ({ accent, strokeWidth, path }) => (
   <path fill="none" stroke={accent} strokeWidth={strokeWidth} d={path} />
 );
 
 Path.propTypes = {
-  accent: PropTypes.string.isRequired,
-  strokeWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  path: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
+  accent: types.accent.isRequired,
+  strokeWidth: types.strokeWidth.isRequired,
+  path: types.path.isRequired,
 };
 
 export default Path;

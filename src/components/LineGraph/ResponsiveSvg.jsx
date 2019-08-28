@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import types from '../_types';
 
 const ResponsiveSvg = forwardRef(({
   width, height, calcWidth, calcHeight, children,
@@ -15,11 +15,11 @@ const ResponsiveSvg = forwardRef(({
 ));
 
 ResponsiveSvg.propTypes = {
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  calcWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  calcHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  children: PropTypes.node,
+  width: types.width.isRequired,
+  height: types.height.isRequired,
+  calcWidth: types.calcWidth.isRequired,
+  calcHeight: types.calcHeight.isRequired,
+  children: types.children,
 };
 
 ResponsiveSvg.defaultProps = {
