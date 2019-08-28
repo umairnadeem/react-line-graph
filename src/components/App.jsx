@@ -28,7 +28,7 @@ class App extends Component {
     const { data, value } = this.state;
     const props = {
       data,
-      smoothing: 0.3,
+      smoothing: 0.4,
       hover: true,
       accent: 'rgb(73,88,209)',
       fillBelow: 'url(#grad1)',

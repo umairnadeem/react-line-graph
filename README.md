@@ -7,7 +7,7 @@
 
 Supports Bezier smoothing, easy customization, and hover interactivity.
 
-![Example demo](demo/demo.gif)
+![Example demo](demo/demo2.gif)
 
 ## Table of Contents
 
