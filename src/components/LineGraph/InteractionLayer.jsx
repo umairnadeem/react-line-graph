@@ -13,17 +13,11 @@ const InteractionLayer = ({
   strokeWidth,
   onHover,
 }) => {
-  // Store mouse position in state
+  // use custom hooks to calculate mouse position
   const [[x, y], setPosition] = useMousePosition([0, 0], calcWidth, calcHeight);
-
-  // Store point position in state
   const [[pointX, pointY], setPoint] = useState([-calcWidth, -calcHeight]);
-
-  // => Removes point from view
-  const clearPoint = () => setPoint([-calcWidth, -calcHeight]);
-
-  // Find midpoints of data-set (to toggle hover)
   const midpoints = adjData.map(findMidpoints);
+  const clearPoint = () => setPoint([-calcWidth, -calcHeight]);
 
   useEffect(() => {
     const index = midpoints.findIndex((point) => x <= point);
@@ -40,7 +34,7 @@ const InteractionLayer = ({
         onMouseMove={setPosition}
         width={calcWidth}
         height={calcHeight}
-        style={{ fill: 'transparent', stroke: 'red' }}
+        style={{ fill: 'transparent', stroke: 'transparent' }}
       />
     </g>
   );
