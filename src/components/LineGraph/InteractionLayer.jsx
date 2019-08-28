@@ -7,7 +7,7 @@ import { useMousePosition, findMidpoints } from '../_helpers';
 const InteractionLayer = ({
   calcWidth, calcHeight, adjData, sortedData, accent, strokeWidth, onHover,
 }) => {
-  const [[x, y], setPosition] = useMousePosition(calcWidth, calcHeight);
+  const [[x, y], setPosition] = useMousePosition();
   const [[pointX, pointY], setPoint] = useState([-100, -100]);
   const clearPoint = () => setPoint([-100, -100]);
   const midpoints = adjData
@@ -29,8 +29,14 @@ const InteractionLayer = ({
 };
 
 InteractionLayer.propTypes = {
-  calcWidth: PropTypes.string.isRequired,
-  calcHeight: PropTypes.string.isRequired,
+  calcWidth: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  calcHeight: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   adjData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
   sortedData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
   accent: PropTypes.string,

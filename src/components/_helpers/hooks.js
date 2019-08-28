@@ -1,15 +1,15 @@
 import { useState, useCallback } from 'react';
 import { getMousePosition, getDimensions } from './dom';
 
-export const useMousePosition = () => { // TODO: include initial state parameter
-  const [position, changePosition] = useState({ x: 0, y: 0 }); // TODO: refactor with array
-  const setPosition = useCallback((e) => {
+export const useMousePosition = (initialState = [0, 0]) => {
+  const [position, changePosition] = useState(initialState);
+  const setPosition = useCallback((e) => { // TODO: useCallback unnecessary?
     const [x, y] = getMousePosition(e);
     const [width, height] = getDimensions(e);
     if (x <= width && y <= height) {
-      changePosition({ x, y });
-    } else changePosition({ x: -1 * width, y: -1 * height });
+      changePosition([x, y]);
+    } else changePosition([-1 * width, -1 * height]);
   });
 
-  return [[position.x, position.y], setPosition];
+  return [position, setPosition];
 };

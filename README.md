@@ -137,4 +137,4 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Put all helper methods in a class
 - Fix smoothing algorithm to be more precise using cubic Beziers
 - Clean up prop passing in InteractionLayer
-- 
+- Refactor hover to not use setState (better performance)
