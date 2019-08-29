@@ -72,6 +72,9 @@ const props = {
 ```
 _This renders a smooth graph with hovering enabled. The y-value is passed down to child components upon hover by default, but this can be changed._
 
+The rendering time is so fast, you can even make fire!
+![Fire demo](demo/demo3.gif)
+
 ### Props ###
 | Key       | Type             | Default          | Description                                                                                                                        |
 |-----------|------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------|
