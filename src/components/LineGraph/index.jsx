@@ -87,7 +87,7 @@ LineGraph.defaultProps = {
   accent: 'black',
   strokeWidth: '0.5',
   onHover: () => {},
-  compression: 0,
+  compression: 0.1,
 };
 
 export default LineGraph;

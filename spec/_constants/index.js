@@ -10,5 +10,5 @@ module.exports = {
     }
     return data;
   })(),
-  pointsExtreme: [[0, 50], [10, 100], [20, 10], [30,110]],
+  pointsExtreme: [[0, 50], [10, 100], [20, 10], [30,300]],
 };

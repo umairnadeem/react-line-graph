@@ -7,7 +7,7 @@ const App = () => {
   const data = points.pointsExtreme; // Get random set of points
   const props = {
     data,
-    smoothing: 0.4,
+    smoothing: 0.3,
     hover: true,
     accent: 'rgb(73,88,209)',
     fillBelow: 'url(#grad1)',
