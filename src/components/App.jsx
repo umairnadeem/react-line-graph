@@ -4,7 +4,7 @@ import points from '../../spec/_constants';
 
 const App = () => {
   const [hovered, onHover] = useState([0, 0]);
-  const data = points.pointsRandom; // Get random set of points
+  const data = points.pointsExtreme; // Get random set of points
   const props = {
     data,
     smoothing: 0.4,
@@ -13,7 +13,7 @@ const App = () => {
     fillBelow: 'url(#grad1)',
     strokeWidth: 3,
     onHover,
-    compression: 0.5,
+    compression: 0,
   };
 
   return (

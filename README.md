@@ -136,7 +136,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
 [wiki]: https://github.com/umairnadeem/react-line-graph/wiki
 
-## TODO
+## Feature Requests
 - Put all helper methods in a class
 - Fix smoothing algorithm to be more precise using cubic Beziers
 - Clean up prop passing in InteractionLayer*
@@ -147,6 +147,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Refactor LineGraph's index.jsx with React Hooks*
 - Publish on NPM, update README tags
 - Allow multiple transformation functions in drawPath function, using piping
+- Add X-Y padding option
 
 ## Challenges
 - Make hovering compatible with responsive height/width: need 3 data points per axis (viewBox dimension, cursor position, current dimension)

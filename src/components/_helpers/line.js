@@ -30,13 +30,16 @@ export const normalize = (points = [], compression = 0, xCeil = 0, yCeil = 0) =>
     Math.min(elem[0], accum[2]),
     Math.min(elem[1], accum[3]),
   ]), [-Infinity, -Infinity, Infinity, Infinity]);
+  // Top compression
+  const topComp = 0.95;
+  // Bottom compression
+  const bottomComp = (1 - Math.min(Math.abs(compression), 1));
   const xDiff = (xMax - xMin) || 1;
   const yDiff = (yMax - yMin) || 1;
-  const compFactor = (1 - Math.min(Math.abs(compression), 1));
   const xFactor = xCeil / xDiff;
-  const yFactor = (yCeil / yDiff) * compFactor;
+  const yFactor = ((yCeil * topComp) / yDiff) * bottomComp;
   const xConst = xCeil - (xFactor * xMax);
-  const yConst = yCeil - (yFactor * yMax);
+  const yConst = yCeil * topComp - (yFactor * yMax);
   return points.map(([x, y]) => [
     Number((x * xFactor + xConst).toFixed(2)),
     Number((y * yFactor + yConst).toFixed(2)),
