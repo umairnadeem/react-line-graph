@@ -1,4 +1,3 @@
-const path = require('path');
 const base = require('./webpack.config.base');
 
 module.exports = {
@@ -19,12 +18,6 @@ module.exports = {
       commonjs2: 'react-dom',
       amd: 'ReactDOM',
       root: 'ReactDOM',
-    },
-  },
-  resolve: {
-    alias: {
-      react: path.resolve(__dirname, './node_modules/react'),
-      'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
     },
   },
 };

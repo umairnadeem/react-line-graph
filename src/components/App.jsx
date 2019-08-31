@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import LineGraph from './LineGraph';
-import POINTS from '../../spec/_constants';
 
 const App = () => {
   const [hovered, onHover] = useState([0, 0]);
-  const data = POINTS.extreme;
+  const data = [[0, 1], [1, 2], [3, 4]];
   const props = {
     data,
     smoothing: 1,
