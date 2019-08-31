@@ -86,7 +86,7 @@ _This renders a smooth graph with hovering enabled. The y-value is passed down t
 | debug     | Boolean          | false            | Displays debug information on graph, including anchor and control points.                                                          |
 | width     | String           | '100%'           | The width of the component within a container element.                                                                             |
 | height    | String           | '100%'           | The height of the component within a container element.                                                                            |
-| compression| Number           | 0           | The compression factor of the data-set from 0 to 1. Compresses data along the Y-axis.                            |
+| compression| Number           | 0.1           | The compression factor of the data-set from 0 to 1. Compresses data linearly from top and bottom along the Y-axis.                            |
 | onHover| Function           | () => {}           | The callback function to which an array containing currently hovered point ([x, y]) is passed when the user hovers. Useful for displaying the hovered value in the parent component (the one you write). Only active when 'hover' is set to true.          |
 
 _For more examples and usage, please refer to the [Wiki][wiki] (under development)._
@@ -148,6 +148,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Publish on NPM, update README tags
 - Allow multiple transformation functions in drawPath function, using piping
 - Add X-Y padding option
+- Prevent re-run of findCtrlPoint function upon hover
 
 ## Challenges
 - Make hovering compatible with responsive height/width: need 3 data points per axis (viewBox dimension, cursor position, current dimension)

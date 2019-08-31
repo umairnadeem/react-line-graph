@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --coverage --verbose --watch",
     "start": "webpack-dev-server --open --env=dev",
-    "build": "webpack -d --watch --env=dev"
+    "build": "webpack -d --watch --env=prod"
   },
   "repository": {
     "type": "git",

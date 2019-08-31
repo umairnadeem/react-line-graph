@@ -28,7 +28,7 @@ export const findCtrlPoint = (smoothing = 0, ...args) => {
   // Apply smoothing ratio
   let [outX] = parse(midPoint);
   const [anchor] = parse(startPoint);
-  const proximity = outX - anchor;
+  const proximity = (outX - anchor) * 0.5;
   outX -= Math.min(Math.abs(smoothing), 1) * proximity;
   const outY = slope * outX + intercept;
 

@@ -1,6 +1,15 @@
+# Development
 src
 demo
 .babelrc
 .eslintrc
+
+# Webpack
 webpack.config.js
+webpack.config.base.js
+webpack.config.dev.js
+webpack.config.prod.js
+
+# Testing
 index.html
+coverage
