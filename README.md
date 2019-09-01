@@ -37,7 +37,7 @@ npm install react-line-graph
 
 Usage is quite simple. First, import the component (React 16.8.0 or higher is required as an installed dependency or CDN):
 ```sh
-import { LineGraph } from 'react-line-graph'
+import LineGraph from 'react-line-graph'
 ```
 
 Render the line:
@@ -141,13 +141,12 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Fix smoothing algorithm to be more precise using cubic Beziers
 - Clean up prop passing in InteractionLayer*
 - Refactor hover to not use setState (better performance)
-- Update compression algorithm to be two-way (compress highs and lows)
+- Update compression algorithm to be two-way (compress highs and lows)*
 - Allow 3 different data input types (create helper function 'parse')
 - Remove unnecessary re-render of graph upon setState in parent component
 - Refactor LineGraph's index.jsx with React Hooks*
-- Publish on NPM, update README tags
+- Publish on NPM, update README tags*
 - Allow multiple transformation functions in drawPath function, using piping
-- Add X-Y padding option
 - Prevent re-run of findCtrlPoint function upon hover
 
 ## Challenges

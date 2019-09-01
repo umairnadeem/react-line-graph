@@ -1,16 +1,16 @@
 {
   "name": "react-line-graph",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A simple and lightweight line graph",
-  "main": "dist/main.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest --coverage --verbose --watch",
     "start": "webpack-dev-server --open --env=dev",
-    "build": "webpack -d --watch --env=prod"
+    "build": "webpack --watch --env=prod"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/umairnadeem/react-npm.git"
+    "url": "git+https://github.com/umairnadeem/react-line-graph.git"
   },
   "keywords": [
     "npm",
@@ -20,25 +20,18 @@
   "author": "Umair Nadeem",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/umairnadeem/react-npm/issues"
+    "url": "https://github.com/umairnadeem/react-line-graph/issues"
   },
-  "homepage": "https://github.com/umairnadeem/react-npm#readme",
+  "homepage": "https://github.com/umairnadeem/react-line-graph#readme",
   "dependencies": {
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
     "prop-types": ">=15.7.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.2",
-    "babel-loader": "^8.0.6",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.2.0",
@@ -51,7 +44,12 @@
     "path": "^0.12.7",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0"
+    "webpack-dev-server": "^3.8.0",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6"
   },
   "jest": {
     "collectCoverageFrom": [

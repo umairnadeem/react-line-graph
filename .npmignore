@@ -1,8 +1,8 @@
 # Development
 src
-demo
 .babelrc
 .eslintrc
+node_modules
 
 # Webpack
 webpack.config.js
@@ -11,5 +11,5 @@ webpack.config.dev.js
 webpack.config.prod.js
 
 # Testing
-index.html
+spec
 coverage

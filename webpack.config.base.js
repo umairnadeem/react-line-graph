@@ -4,7 +4,7 @@ module.exports = {
   entry: path.resolve('src'),
   output: {
     path: path.resolve('lib'),
-    filename: 'Component.js',
+    filename: 'index.js',
   },
   module: {
     rules: [
