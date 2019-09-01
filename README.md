@@ -148,6 +148,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Publish on NPM, update README tags*
 - Allow multiple transformation functions in drawPath function, using piping
 - Prevent re-run of findCtrlPoint function upon hover
+- Allow exponential smoothing for large data-sets
 
 ## Challenges
 - Make hovering compatible with responsive height/width: need 3 data points per axis (viewBox dimension, cursor position, current dimension)
