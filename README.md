@@ -106,6 +106,9 @@ npm test
 ```
 
 ## Release History
+* 1.0.3
+    * First patched release
+    * CHANGE: bug-fixes, new features. See release for details.
 * 1.0.0
     * The first proper release
     * CHANGE: Add Bezier smoothing transformation function
