@@ -1,6 +1,6 @@
 {
   "name": "react-line-graph",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple and lightweight line graph",
   "main": "lib/index.js",
   "scripts": {
@@ -32,6 +32,11 @@
     "prop-types": ">=15.7.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.2.0",
@@ -42,14 +47,10 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "jest": "^24.9.0",
     "path": "^0.12.7",
+    "react-dom": "^16.9.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.2",
-    "babel-loader": "^8.0.6"
+    "webpack-dev-server": "^3.8.0"
   },
   "jest": {
     "collectCoverageFrom": [

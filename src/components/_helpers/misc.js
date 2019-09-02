@@ -12,7 +12,7 @@ export const parseData = (data) => {
         return [elem.x, elem.y];
       }
       if (isPrimitive(elem)) {
-        return [elem, i];
+        return [i, elem];
       }
       return null;
     });
