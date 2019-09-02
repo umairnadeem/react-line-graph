@@ -1,6 +1,6 @@
 {
   "name": "react-line-graph",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "A simple and lightweight line graph",
   "main": "lib/index.js",
   "scripts": {

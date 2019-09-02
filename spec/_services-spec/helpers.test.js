@@ -9,7 +9,7 @@ describe('Basic functionality of misc helper functions', () => {
   });
 
   it('should correctly parse input of plain y-coordinates', () => {
-    const data = [20, 30, 40];
+    const data = [20, 30, 40, -90];
     const parsed = parseData(data);
     const expected = data.map((y, x) => [x, y]);
     expect(parsed).toMatchObject(expected);

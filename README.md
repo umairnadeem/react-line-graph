@@ -79,16 +79,16 @@ _This renders a smooth graph with hovering enabled. The y-value is passed down t
 | smooth    | Number (0 to 1)  | 0                | The Bezier smoothing ratio to apply.                                                                                               |
 | accent      | String           | 'black' | The color of the line accents                                                                                         |
 | fillBelow | String           | 'none'           | The color of the fill below the line.                                                                                              |
-| fillAbove | String           | 'none'           | The color of the fill above the line.                                                                                              |
+| fillAbove* | String           | 'none'           | The color of the fill above the line.                                                                                              |
 | hover     | Boolean          | false            | Enables hovering. Hovering will render a line and will pass on the hovered value to children (this component is child-aware).      |
-| gridX     | Boolean          | false            | Shows the grid-lines along the x-axis (vertical lines).                                                                            |
-| gridY     | Boolean          | false            | Shows the grid-lines along the y-axis (horizontal lines).                                                                          |
+| gridX*    | Boolean          | false            | Shows the grid-lines along the x-axis (vertical lines).                                                                            |
+| gridY*    | Boolean          | false            | Shows the grid-lines along the y-axis (horizontal lines).                                                                          |
 | debug     | Boolean          | false            | Displays debug information on graph, including anchor and control points.                                                          |
 | width     | String           | '100%'           | The width of the component within a container element.                                                                             |
 | height    | String           | '100%'           | The height of the component within a container element.                                                                            |
 | compression| Number           | 0.1           | The compression factor of the data-set from 0 to 1. Compresses data linearly from top and bottom along the Y-axis.                            |
 | onHover| Function           | () => {}           | The callback function to which an array containing currently hovered point ([x, y]) is passed when the user hovers. Useful for displaying the hovered value in the parent component (the one you write). Only active when 'hover' is set to true.          |
-
+_* refers to proposed feature (not yet available)_
 _For more examples and usage, please refer to the [Wiki][wiki] (under development)._
 
 ## Development setup
