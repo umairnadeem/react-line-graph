@@ -109,6 +109,9 @@ npm test
 ```
 
 ## Release History
+* 1.0.6
+    * A minor upgrade from previous release. Updated README, change export to default.
+    * CHANGE: minor bug-fixes, semantic changes.
 * 1.0.3
     * First patched release
     * CHANGE: bug-fixes, new features. See release for details.
