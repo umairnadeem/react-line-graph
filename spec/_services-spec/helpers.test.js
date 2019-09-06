@@ -16,7 +16,7 @@ describe('Basic functionality of misc helper functions', () => {
   });
 
   it('should correctly parse input of objects', () => {
-    const data = [{ x: 20, y: 0 }, { x: -200, y: 0.3 }, { x: -12.333, y: 83, z: 23 }];
+    const data = [{ x: 20, y: 0 }, { x: -200, y: 0.3 }, { x: -12.3330, y: 83, z: 23 }];
     const parsed = parseData(data);
     const expected = data.map((point) => [point.x, point.y]);
     expect(parsed).toMatchObject(expected);

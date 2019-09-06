@@ -155,8 +155,17 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Allow exponential smoothing for large data-sets
 
 ## Challenges
-- Make hovering compatible with responsive height/width: need 3 data points per axis (viewBox dimension, cursor position, current dimension)
-- Pass up hovered point information into parent
-- Allow parent to setState with point information without triggering unecessary re-render
-- Writing a smoothing algorithm using cubic Bezier without artifacts
-- Modular transformation callback in drawPath helper
+- Challenge #1: Make hovering compatible with responsive height/width
+- Challenge #2: Pass up hovered point information into parent
+- Challenge #3: Allow parent to setState with point information without triggering unecessary re-render
+- Challenge #4: Writing a smoothing algorithm using cubic Bezier without artifacts
+- Challenge #5: Modular transformation callback in drawPath helper
+
+## My Solutions
+- Challenge #1: I used 3 data points per axis (SVG viewBox dimensions, cursor position, current dimensions). The viewBox dimensions are set upon initial rendering of the graph, while the current dimensions are calculated upon each hover using the Element.getBoundingClientRect() native browser method. The cursor position is calculated relative to the viewBox value, and the current dimensions are the most up-to-date dimensions. These 3 data points allow me to ensure accuracy of hover coordinates even after the line-graph changes dimensions after being rendered. More specifically, the hovered position relative to the viewBox can be obtained by the formula: (cursor position / current dimensions) * viewBox dimensions. This ensures that hover edge-cases (such as size-changes) are handled effectively. 
+- Challenge #2: To allow maximum user flexibility for handling hover events, I use a 'render prop' pattern where the user can pass in the component to be rendered (or function to be called) into the line-graph component so that the hovered coordinates can be passed into the component (function). This way, the user has full flexibility as to what is displayed when a point is hovered upon and where it is displayed.
+- Challenge #3: (pending) Use shouldComponentUpdate or pure components to do a shallow comparison of props, preventing extra re-renders
+- Challenge #4: I solved this problem by using 3 data points per control point calculation. For each point, I look at the points immediately following and prior to the focal point in question. I draw a line between the aforementioned two surrounding points, and shift the line by a constant factor so that it intercepts the focal point. I then set the control point on this line. The smoothing factor determines how far away the X-values of the control point and focus point are. This finds one control point - the other control point is a reflection of this control point (calculated by reflecting the control point along a line perpendicular to the focal point and prior point).
+- Challenge #5: (pending) I will likely use a pipe function to allow multiple transformation functions instead of one
+
+## Notable features
