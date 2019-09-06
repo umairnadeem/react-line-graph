@@ -171,6 +171,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Challenge #5: (pending) I will likely use a pipe function to allow multiple transformation functions instead of one
 
 ## Notable features
+- Automatic data scaling
 - Responsive hovering
 - Data compression along Y-axis
 - Smoothing parameter for aesthetics
