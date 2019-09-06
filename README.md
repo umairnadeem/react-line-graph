@@ -21,6 +21,8 @@ Supports Bezier smoothing, easy customization, and hover interactivity.
 8. [Contributing](#contributing)
 9. [To-do](#todo)
 10. [Challenges](#challenges)
+11. [My Solutions](#my-solutions)
+12. [Notable Features](#notable-features)
 
 ## Requirements
 
@@ -169,3 +171,9 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Challenge #5: (pending) I will likely use a pipe function to allow multiple transformation functions instead of one
 
 ## Notable features
+- Responsive hovering
+- Data compression along Y-axis
+- Smoothing parameter for aesthetics
+- Easy customization (with support for SVG gradients and CSS color notation)
+- Small library size (due to sharing the React library)
+- Easy feature expandability due to modular design
