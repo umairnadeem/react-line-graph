@@ -158,6 +158,7 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 - Allow multiple transformation functions in drawPath function, using piping
 - Prevent re-run of findCtrlPoint function upon hover
 - Allow exponential smoothing for large data-sets
+- Allow multiple lines
 
 ## Challenges
 - Challenge #1: Make hovering compatible with responsive height/width
