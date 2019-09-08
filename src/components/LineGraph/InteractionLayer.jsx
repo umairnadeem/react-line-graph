@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Point from './Point';
-import Line from './Line';
+import HoverPoint from './HoverPoint';
+import HoverLine from './HoverLine';
 import { useMousePosition, findMidpoints } from '../_helpers';
 import types from '../_types';
 
@@ -27,8 +27,8 @@ const InteractionLayer = ({
 
   return (
     <g>
-      <Point x={pointX} y={pointY} accent={accent} strokeWidth={strokeWidth} />
-      <Line x={pointX} accent={accent} strokeWidth={strokeWidth} calcHeight={calcHeight} />
+      <HoverPoint x={pointX} y={pointY} accent={accent} strokeWidth={strokeWidth} />
+      <HoverLine x={pointX} accent={accent} strokeWidth={strokeWidth} calcHeight={calcHeight} />
       <rect
         onMouseLeave={clearPoint}
         onMouseMove={setPosition}
